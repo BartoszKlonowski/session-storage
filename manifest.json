@@ -7,7 +7,7 @@
   
     "content_scripts": [
       {
-        "matches": ["*://*"],
+        "matches": ["*://*.com/*"],
         "js": ["src/PluginApp.js"]
       }
     ]
