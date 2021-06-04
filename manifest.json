@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "KeepYourSession",
+    "version": "0.1.0",
+  
+    "description": "Let's user keep his sessions for future restoration",
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*.com/*"],
+        "js": ["src/PluginApp.js"]
+      }
+    ]
+  
+  }
