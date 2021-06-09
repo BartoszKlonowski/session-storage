@@ -12,14 +12,7 @@
     "browser_action": {
       "default_icon": "icons/KeepYourSessionIcon.png",
       "default_title": "KeepYourSession",
-      "default_popup": "popup/MainPopup.html"
-    },
-
-    "content_scripts": [
-      {
-        "matches": ["*://*.com/*"],
-        "js": ["src/PluginApp.js"]
-      }
-    ]
+      "default_popup": "src/popup/MainPopup.html"
+    }
   
   }
