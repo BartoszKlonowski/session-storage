@@ -9,5 +9,9 @@
         "sourceType": "module"
     },
     "rules": {
+    },
+    "globals": {
+        "browser": "writable",
+        "window": "readonly"
     }
 }

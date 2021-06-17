@@ -3,7 +3,7 @@
  * the content script in the page.
  */
 function listenForClicks() {
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", () => {
     });
 }
 
