@@ -1,18 +1,17 @@
 {
-    "manifest_version": 2,
-    "name": "KeepYourSession",
-    "version": "0.1.0",
+  "manifest_version": 2,
+  "name": "KeepYourSession",
+  "version": "0.1.0",
 
-    "icons": {
-      "32": "icons/KeepYourSessionIcon.png"
-    },
+  "icons": {
+    "32": "icons/KeepYourSessionIcon.png"
+  },
 
-    "description": "Let's user keep his sessions for future restoration",
+  "description": "Let's user keep his sessions for future restoration",
 
-    "browser_action": {
-      "default_icon": "icons/KeepYourSessionIcon.png",
-      "default_title": "KeepYourSession",
-      "default_popup": "src/popup/MainPopup.html"
-    }
-  
+  "browser_action": {
+    "default_icon": "icons/KeepYourSessionIcon.png",
+    "default_title": "KeepYourSession",
+    "default_popup": "src/popup/MainPopup.html"
   }
+}
