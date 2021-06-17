@@ -1,0 +1,25 @@
+{
+  "name": "keep-your-session",
+  "version": "0.1.0",
+  "description": "Mozilla Firefox extension plugin to store and manage browsing sessions",
+  "main": "manifest.json",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BartoszKlonowski/KeepYourSession.git"
+  },
+  "keywords": [
+    "Firefox",
+    "Extension",
+    "Plugin",
+    "Session"
+  ],
+  "author": "Bartosz Klonowski",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/BartoszKlonowski/KeepYourSession/issues"
+  },
+  "homepage": "https://github.com/BartoszKlonowski/KeepYourSession#readme"
+}
