@@ -1,0 +1,12 @@
+
+# ignored files in general
+*.css
+*.html
+*.json
+
+# ignore icons and resources
+*.png
+
+# ignore non-source files
+LICENSE
+./node_modules/
