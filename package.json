@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BartoszKlonowski/KeepYourSession.git"
+    "url": "git+https://github.com/BartoszKlonowski/keep-your-session.git"
   },
   "keywords": [
     "Firefox",
@@ -19,7 +19,7 @@
   "author": "Bartosz Klonowski",
   "license": "GNU GPL V3",
   "bugs": {
-    "url": "https://github.com/BartoszKlonowski/KeepYourSession/issues"
+    "url": "https://github.com/BartoszKlonowski/keep-your-session/issues"
   },
-  "homepage": "https://github.com/BartoszKlonowski/KeepYourSession#readme"
+  "homepage": "https://github.com/BartoszKlonowski/keep-your-session#readme"
 }
