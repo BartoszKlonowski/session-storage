@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/BartoszKlonowski/keep-your-session#readme",
   "devDependencies": {
-    "eslint": "^7.28.0"
+    "eslint": "^7.28.0",
+    "web-ext": "^6.1.0"
   }
 }
