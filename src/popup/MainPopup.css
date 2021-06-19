@@ -6,15 +6,28 @@ html, body {
     display: none;
   }
 
-  .panel-name {
-    height: 50%;
+  .panel-session-name {
+    height: 45%;
     display: flex;
     justify-content: center;
   }
 
+  .panel-plugin-name {
+    height: 10%;
+  }
+
+  a {
+    display: flex;
+    font-size: 20px;
+    margin-top: 5px;
+    align-self: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
   .panel-actions {
     display: flex;
-    height: 50%;
+    height: 45%;
     align-content: center;
     align-items: center;
     justify-content: space-around;
