@@ -24,6 +24,21 @@ html, body {
   .session-name-input {
     width: 90%;
     margin: 10px;
+    border-color: grey;
+  }
+
+  input[type=text] {
+    width: 90%;
+    margin: 10px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    border-color: grey;
+  }
+
+  textarea:focus, input:focus{
+    outline: none;
   }
 
   .row:after {
