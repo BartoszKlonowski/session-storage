@@ -4,12 +4,29 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="MainPopup.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 
-<body>
-  <div id="popup-content">
-  </div>
-  <script src="MainPopup.js"></script>
-</body>
+  <body>
+    <div id="popup-content">
+
+      <div class="panel-plugin-name">
+        <a href="https://github.com/BartoszKlonowski/keep-your-session">Keep Your Session</a>
+      </div>
+
+      <div class="panel-session-name">
+        <input list="sessions" type="text" placeholder="..." autofocus/>
+        <datalist id="sessions"></datalist>
+      </div>
+
+      <div class="panel-actions">
+        <div class="button"><i class="glyphicon glyphicon-floppy-disk"></i></div>
+        <div class="button"><i class="glyphicon glyphicon-trash"></i></div>
+        <div class="button"><i class="glyphicon glyphicon-refresh"></i></div>
+      </div>
+
+    </div>
+    <script src="MainPopup.js"></script>
+  </body>
 
 </html>

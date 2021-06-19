@@ -1,15 +1,72 @@
 html, body {
-    width: 100px;
+    width: 300px;
   }
 
   .hidden {
     display: none;
   }
 
+  .panel-session-name {
+    height: 45%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .panel-plugin-name {
+    height: 10%;
+  }
+
+  a {
+    display: flex;
+    font-size: 20px;
+    margin-top: 5px;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .panel-actions {
+    display: flex;
+    height: 45%;
+    justify-content: space-around;
+  }
+
+  .session-name-input {
+    width: 90%;
+    margin: 10px;
+    border-color: grey;
+  }
+
+  input[type=text] {
+    width: 90%;
+    margin: 10px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 1px;
+    border-color: lightblue;
+  }
+
+  textarea:focus, input:focus{
+    outline: none;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   .button {
-    margin: 3% auto;
-    padding: 4px;
-    text-align: center;
-    font-size: 1.5em;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
     cursor: pointer;
+    background-image: radial-gradient( white, lightblue);
+    border: 1px solid transparent;
+    transition: 250ms all ease-in-out;
+  }
+
+  .button:hover {
+    border-radius: 50px;
+    border: 1px solid blue;
   }
