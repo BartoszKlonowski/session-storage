@@ -34,7 +34,7 @@ html, body {
     border-left-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 1px;
-    border-color: grey;
+    border-color: lightblue;
   }
 
   textarea:focus, input:focus{
@@ -55,12 +55,12 @@ html, body {
     align-self: center;
     font-size: 1em;
     cursor: pointer;
-    background-image: radial-gradient( white, lightgrey);
+    background-image: radial-gradient( white, lightblue);
     border: 1px solid transparent;
     transition: 250ms all ease-in-out;
   }
 
   .button:hover {
     border-radius: 50px;
-    border: 1px solid black;
+    border: 1px solid blue;
   }
