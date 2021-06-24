@@ -84,3 +84,9 @@ jobs:
 
       - name: Build the release package
         run: npx web-ext build
+
+      - name: Store the built package
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-candidate-package
+          path: ./web-ext-artifacts/*
