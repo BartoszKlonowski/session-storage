@@ -84,7 +84,7 @@ jobs:
           key: ${{ hashFiles('./package.json') }}
 
       - name: Build the release package
-        run: npx web-ext build
+        run: npx web-ext build --ignore-files "__tests__"
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
