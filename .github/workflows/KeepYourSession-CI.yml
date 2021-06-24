@@ -39,11 +39,12 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Run ESLint on the sources
-        run: npx eslint .\src\**
+        run: npx eslint .\src\** .\__tests__\**
 
 
   test:
     name: Run the unit tests
+    runs-on: windows-latest
     needs: [install, verify]
 
     steps:
