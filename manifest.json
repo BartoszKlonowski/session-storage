@@ -4,7 +4,7 @@
   "version": "0.1.0",
 
   "icons": {
-    "32": "icons/KeepYourSessionIcon.png"
+    "830": "icons/KeepYourSessionIcon.png"
   },
 
   "description": "Let's user keep his sessions for future restoration",
