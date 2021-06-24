@@ -41,10 +41,33 @@ jobs:
       - name: Run ESLint on the sources
         run: npx eslint .\src\**
 
+
+  pre-build-package-verify:
+    name: Verify the package before build
+    runs-on: windows-latest
+    needs: [install, verify]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      - name: Pull the npm dependencies
+        uses: actions/cache@v2.1.6
+        with:
+          path: ./node_modules
+          key: ${{ hashFiles('./package.json') }}
+
+      - name: Verify the package
+        run: npx web-ext lint
+
+
   build:
     name: Build the release package
     runs-on: windows-latest
-    needs: [install, verify]
+    needs: [pre-build-package-verify]
 
     steps:
       - name: Checkout repository
