@@ -24,6 +24,16 @@ The idea is to have a simple plugin (being available in the upper-right corner) 
   
 ## Installation & Usage ##
 
+You can use this extension by:
+* downloading it directly from the [Releases page](https://github.com/BartoszKlonowski/keep-your-session/releases) and install it manually in your browser
+> Official package will appear in the browser add-ons market only after v1.0.0 release.
+> Please stay tuned!
+>* installing it via the Mozilla add-ons market under the [following link](https://addons.mozilla.org/pl/firefox/addon/keepyoursession/) to the officialy published package
+
+After successful installation you will see the extension icon in the upper-right corner of your browser.
+Click it for the popup to appear and use it just like presented below:
+
+![Usage presentation GIF](.github/resources/Plugin-presentation1.gif)
 
 ---
 
