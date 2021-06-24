@@ -12,6 +12,8 @@
     },
     "globals": {
         "browser": "writable",
-        "window": "readonly"
+        "window": "readonly",
+        "test": "writable",
+        "expect": "writable"
     }
 }
