@@ -6,6 +6,9 @@
     <a href="https://github.com/BartoszKlonowski/ExtendedVector/blob/main/LICENSE">
         <img src="https://img.shields.io/github/license/BartoszKlonowski/keep-your-session?style=plastic" alt="KeepYourSession is released under the GNU GPL v3 license." />
     </a>
+    <a href="https://github.com/BartoszKlonowski/keep-your-session/actions/workflows/keep-your-session-CI.yml">
+        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/keep-your-session/KeepYourSession-CI?label=Tests&style=plastic" alt="Unit Tests status" />
+    </a>
     <a href="https://github.com/BartoszKlonowski/keep-your-session/actions/workflows/KeepYourSession-CI.yml">
         <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/keep-your-session/KeepYourSession-CI?label=Verify%3A%20ESLint&style=plastic" alt="Source: ESLint verification status" />
     </a>
