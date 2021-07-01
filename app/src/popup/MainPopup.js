@@ -1,5 +1,32 @@
 function listenForClicks() {
-    document.addEventListener("click", () => {});
+
+    function reportError(error) {
+        console.error(`Could not handle the click due to: ${error}`);
+    }
+
+    function sendMessageToEngineListener(tabs, message) {
+        browser.tabs.sendMessage(tabs[0].id, {
+            command: message
+        });
+    }
+
+    document.addEventListener("click", (event) => {
+        if (event.target.id === "saveButton") {
+            browser.tabs.query({active: true, currentWindow: true})
+                .then((tabs) => {sendMessageToEngineListener(tabs, "save")})
+                .catch(reportError);
+        }
+        else if (event.target.id === "deleteButton") {
+            browser.tabs.query({active: true, currentWindow: true})
+                .then((tabs) => {sendMessageToEngineListener(tabs, "delete")})
+                .catch(reportError);
+        }
+        else if (event.target.id === "reopenButton") {
+            browser.tabs.query({active: true, currentWindow: true})
+                .then((tabs) => {sendMessageToEngineListener(tabs, "reopen")})
+                .catch(reportError);
+        }
+    });
 }
 
 
