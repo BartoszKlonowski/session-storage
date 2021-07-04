@@ -39,7 +39,7 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Run ESLint on the sources
-        run: npx eslint .\src\** .\__tests__\**
+        run: npx eslint .\app\src\** .\__tests__\**
 
 
   test:
@@ -83,7 +83,7 @@ jobs:
           key: ${{ hashFiles('./package.json') }}
 
       - name: Verify the package
-        run: npx web-ext lint
+        run: npx web-ext --source-dir "./app" lint
 
 
   build:
@@ -106,7 +106,7 @@ jobs:
           key: ${{ hashFiles('./package.json') }}
 
       - name: Build the release package
-        run: npx web-ext build --ignore-files "__tests__"
+        run: npx web-ext build --source-dir "./app" --ignore-files "__tests__"
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
