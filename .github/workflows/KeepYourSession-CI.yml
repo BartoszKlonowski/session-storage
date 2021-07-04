@@ -86,8 +86,8 @@ jobs:
         run: npx web-ext --source-dir "./app" lint
 
 
-  pre-build-package-transpile:
-    name: Transpile the sources before build
+  pre-build-package-compile:
+    name: Compile the sources before build
     runs-on: windows-latest
     needs: [install, verify]
 
@@ -120,7 +120,7 @@ jobs:
   build:
     name: Build the release package
     runs-on: windows-latest
-    needs: [pre-build-package-verify, pre-build-package-transpile]
+    needs: [pre-build-package-verify, pre-build-package-compile]
     if: github.ref == 'refs/heads/main'
 
     steps:
