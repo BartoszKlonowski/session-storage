@@ -86,10 +86,41 @@ jobs:
         run: npx web-ext --source-dir "./app" lint
 
 
+  pre-build-package-transpile:
+    name: Transpile the sources before build
+    runs-on: windows-latest
+    needs: [install, verify]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      - name: Pull the npm dependencies
+        uses: actions/cache@v2.1.6
+        with:
+          path: ./node_modules
+          key: ${{ hashFiles('./package.json') }}
+
+      - name: Transpile
+        run: npx babel --config-file './.babelrc' ./app -Dd ./build
+
+      - name: Compile
+        run: npx webpack --mode 'production'
+
+      - name: Cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: ./build
+          key: ${{ hashFiles('./app/manifest.json') }}
+
+
   build:
     name: Build the release package
     runs-on: windows-latest
-    needs: [pre-build-package-verify]
+    needs: [pre-build-package-verify, pre-build-package-transpile]
     if: github.ref == 'refs/heads/main'
 
     steps:
@@ -105,8 +136,14 @@ jobs:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
+      - name: Pull the transpiled sources
+        uses: actions/cache@v2.1.6
+        with:
+          path: ./build
+          key: ${{ hashFiles('./app/manifest.json') }}
+
       - name: Build the release package
-        run: npx web-ext build --source-dir "./app" --ignore-files "__tests__"
+        run: npx web-ext build --source-dir "./build"
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
