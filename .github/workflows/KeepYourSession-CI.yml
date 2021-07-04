@@ -121,6 +121,7 @@ jobs:
     name: Build the release package
     runs-on: windows-latest
     needs: [pre-build-package-verify, pre-build-package-compile]
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout repository
