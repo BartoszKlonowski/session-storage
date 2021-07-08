@@ -4,7 +4,9 @@
   "description": "Mozilla Firefox extension plugin to store and manage browsing sessions",
   "main": "manifest.json",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode development",
+    "install": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode production"
   },
   "repository": {
     "type": "git",
