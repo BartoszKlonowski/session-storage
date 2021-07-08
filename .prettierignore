@@ -4,6 +4,7 @@
 *.json
 *.yml
 *.md
+webpack.config.js
 
 # Ignore build artiffacts
 build

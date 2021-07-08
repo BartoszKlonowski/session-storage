@@ -39,7 +39,7 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Run ESLint on the sources
-        run: npx eslint .\app\src\** .\__tests__\**
+        run: npx eslint .
 
 
   test:

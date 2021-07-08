@@ -3,6 +3,7 @@
 *.css
 *.html
 *.json
+webpack.config.js
 
 # ignore icons and resources
 *.png
