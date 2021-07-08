@@ -11,6 +11,7 @@ test('buttonIdToCommandId returns unknown for incorrect ID', () => {
 });
 
 test('sendMessageToEngineListener passes message as is in a correct command', () => {
-    const tab = {"id": 0, sendMessage(id, command){}};
-    expect(plugin.sendMessageToEngineListener({tabs: {sendMessage(id, command){}}}, [tab,tab], "proper message")).toMatchObject({command: "proper message"});
+    function sendMessage(id, command){id, command}
+    const tab = {"id": 0, sendMessage};
+    expect(plugin.sendMessageToEngineListener({tabs: {sendMessage}}, [tab,tab], "proper message")).toMatchObject({command: "proper message"});
 });
