@@ -1,0 +1,9 @@
+# Ingore implementation-unrelated files (View, configs)
+*.html
+*.css
+*.json
+*.yml
+*.md
+
+# Ignore build artiffacts
+build
