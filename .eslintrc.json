@@ -9,7 +9,16 @@
         "sourceType": "module"
     },
     "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
     },
+    "plugins": [
+        "prettier"
+    ],
     "globals": {
         "browser": "writable",
         "window": "readonly",

@@ -3,8 +3,7 @@
  * the content script in the page.
  */
 function listenForClicks() {
-    document.addEventListener("click", () => {
-    });
+    document.addEventListener("click", () => {});
 }
 
 /**
@@ -22,6 +21,7 @@ function reportExecuteScriptError(error) {
  * and add a click handler.
  * If we couldn't inject the script, handle the error.
  */
-browser.tabs.executeScript({ file: "../content_scripts/KeepYourSession.js" })
+browser.tabs
+    .executeScript({file: "../content_scripts/KeepYourSession.js"})
     .then(listenForClicks)
     .catch(reportExecuteScriptError);
