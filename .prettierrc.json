@@ -3,5 +3,6 @@
     "printWidth": 120,
     "tabWidth": 4,
     "bracketSpacing": false,
-    "jsxBracketSameLine": true
+    "jsxBracketSameLine": true,
+    "endOfLine": "auto"
 }
