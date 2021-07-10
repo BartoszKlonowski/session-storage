@@ -1,5 +1,5 @@
 export function buttonIdToCommandMessage(buttonId) {
-    switch(buttonId) {
+    switch (buttonId) {
         case "saveButton":
             return "save";
         case "deleteButton":
@@ -28,7 +28,8 @@ export function handleEventForGivenTab(browser, tabs, event) {
 
 export function listenForClicks(document, browser) {
     document.addEventListener("click", (event) => {
-        browser.tabs.query({active: true, currentWindow: true})
+        browser.tabs
+            .query({active: true, currentWindow: true})
             .then((tabs) => handleEventForGivenTab(browser, tabs, event))
             .catch((error) => reportError(error));
     });
