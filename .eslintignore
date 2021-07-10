@@ -11,3 +11,6 @@ webpack.config.js
 # ignore non-source files
 LICENSE
 ./node_modules/
+
+# Ignore build outputs
+build
