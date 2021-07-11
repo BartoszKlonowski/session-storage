@@ -1,7 +1,7 @@
-/**
- * A simple test before the plugin implementation
- * It's purpose is to present the test passing and workflow running correctly
- */
-test("adds 1 + 2 to equal 3", () => {
-    expect(1 + 2).toBe(3);
+import Content from "../app/src/content_scripts/Content";
+
+test("Content constructor receives data correctly", () => {
+    const content = new Content("testing command", "testing session");
+    expect(content.getSession()).toBe("testing session");
+    expect(content.getCommand()).toBe("testing command");
 });

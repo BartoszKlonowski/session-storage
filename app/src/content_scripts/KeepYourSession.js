@@ -1,3 +1,5 @@
+import Content from "./Content";
+
 (function () {
     if (window.hasRun) {
         return;
@@ -5,10 +7,7 @@
     window.hasRun = true;
 
     browser.runtime.onMessage.addListener((message) => {
-        if (message.command === "save") {
-            console.warn(`Received command: execute`);
-        } else if (message.command === "reset") {
-            console.error(`Failed to execute content script: No content implemented`);
-        }
+        const content = new Content(message.command, message.session);
+        console.log(content);
     });
 })();
