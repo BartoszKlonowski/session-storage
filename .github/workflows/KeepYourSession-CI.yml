@@ -143,7 +143,7 @@ jobs:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
-      - name: Pull the transpiled sources
+      - name: Pull the compiled sources
         uses: actions/cache@v2.1.6
         with:
           path: ./build
