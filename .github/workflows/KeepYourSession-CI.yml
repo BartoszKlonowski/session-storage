@@ -52,7 +52,7 @@ jobs:
   test:
     name: Run the unit tests
     runs-on: windows-latest
-    needs: [install, verify]
+    needs: [verify]
 
     steps:
       - name: Checkout repository
@@ -74,7 +74,7 @@ jobs:
   pre-build-package-verify:
     name: Verify the package before build
     runs-on: windows-latest
-    needs: [install, verify]
+    needs: [verify]
 
     steps:
       - name: Checkout repository
@@ -96,7 +96,7 @@ jobs:
   pre-build-package-compile:
     name: Compile the sources before build
     runs-on: windows-latest
-    needs: [install, verify]
+    needs: [verify]
 
     steps:
       - name: Checkout repository
