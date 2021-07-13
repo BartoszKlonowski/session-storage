@@ -52,7 +52,7 @@ jobs:
   test:
     name: Run the unit tests
     runs-on: windows-latest
-    needs: [install, verify]
+    needs: [verify]
 
     steps:
       - name: Checkout repository
@@ -74,7 +74,7 @@ jobs:
   pre-build-package-verify:
     name: Verify the package before build
     runs-on: windows-latest
-    needs: [install, verify]
+    needs: [verify]
 
     steps:
       - name: Checkout repository
@@ -96,7 +96,7 @@ jobs:
   pre-build-package-compile:
     name: Compile the sources before build
     runs-on: windows-latest
-    needs: [install, verify]
+    needs: [verify]
 
     steps:
       - name: Checkout repository
@@ -143,7 +143,7 @@ jobs:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
-      - name: Pull the transpiled sources
+      - name: Pull the compiled sources
         uses: actions/cache@v2.1.6
         with:
           path: ./build
