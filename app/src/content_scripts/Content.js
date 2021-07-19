@@ -1,7 +1,8 @@
 class Content {
-    constructor(command, session) {
+    constructor(command, session, browser) {
         this.command = command;
         this.session = session;
+        this.browser = browser;
     }
 
     getCommand() {
