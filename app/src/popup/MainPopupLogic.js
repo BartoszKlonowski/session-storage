@@ -15,9 +15,9 @@ export function reportError(error) {
     console.error(`Could not handle the click due to: ${error}`);
 }
 
-export function sendMessageToEngineListener(browser, tabs, message, sessionName) {
-    const command = {command: message, session: sessionName};
-    browser.tabs.sendMessage(tabs[0].id, command);
+export function sendMessageToEngineListener(browser, tabs, action, sessionName) {
+    const command = {command: action, session: sessionName};
+    browser.runtime.sendMessage(command);
     return command;
 }
 

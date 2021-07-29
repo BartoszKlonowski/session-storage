@@ -8,19 +8,14 @@
     "sessions",
     "tabs",
     "unlimitedStorage",
-    "*://*/*",
 		"contextMenus",
 		"storage",
-		"tabs",
 		"notifications",
-		"downloads",
-		"search",
-		"webRequest",
-		"webRequestBlocking"
+		"search"
   ],
 
   "background": {
-    "scripts": ["src/Background.js"]
+    "scripts": ["src/engine/Background.js"]
   },
 
   "icons": {

@@ -16,7 +16,7 @@ test("sendMessageToEngineListener passes message as is in a correct command", ()
     }
     const tab = {id: 0, sendMessage};
     expect(
-        plugin.sendMessageToEngineListener({tabs: {sendMessage}}, [tab, tab], "proper message", "testSession")
+        plugin.sendMessageToEngineListener({runtime: {sendMessage}}, [tab, tab], "proper message", "testSession")
     ).toMatchObject({
         command: "proper message",
         session: "testSession",
