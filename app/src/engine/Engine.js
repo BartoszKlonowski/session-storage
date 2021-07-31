@@ -12,31 +12,52 @@ class Engine {
             type: "basic",
             iconUrl: "",
             title: `save: ${name}`,
-            message: `${session}`,
+            message: `session.length = ${session.length} ${JSON.stringify(session)}`,
         });
     }
 
     deleteSession(session, name) {
-        browser.notifications.create({
-            type: "basic",
-            iconUrl: "",
-            title: `delete: ${name}`,
-            message: `${session}`,
-        });
+        for(let tab in session) {
+            browser.notifications.create({
+                type: "basic",
+                iconUrl: "",
+                title: `delete: ${name}`,
+                message: `${this.mdnTabToDatabaseTabObject(session[tab]).url}`,
+            });
+        }
     }
 
     reopenSession(session, name) {
-        browser.notifications.create({
-            type: "basic",
-            iconUrl: "",
-            title: `reopen: ${name}`,
-            message: `${session}`,
-        });
+        for(let tab in session) {
+            browser.notifications.create({
+                type: "basic",
+                iconUrl: "",
+                title: `reopen: ${name}`,
+                message: `${JSON.stringify(this.mdnTabToDatabaseTabObject(tab))}`,
+            });
+        }
     }
 
     isSessionNameCorrect(name) {
         const sessionName = String(name);
         return sessionName.length !== 0;
+    }
+
+    mdnTabToDatabaseTabObject(mdnTabObject) {
+        const dbTab = {
+            active: mdnTabObject.active,
+            hidden: mdnTabObject.hidden,
+            highlighted: mdnTabObject.highlighted,
+            incognito: mdnTabObject.incognito,
+            index: mdnTabObject.index,
+            isArticle: mdnTabObject.isArticle,
+            isInReaderMode: mdnTabObject.isInReaderMode,
+            lastAccessed: mdnTabObject.lastAccessed,
+            pinned: mdnTabObject.pinned,
+            windowId: mdnTabObject.windowId,
+            url: mdnTabObject.url
+        };
+        return dbTab;
     }
 }
 
