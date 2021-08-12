@@ -8,32 +8,37 @@ class Engine {
     }
 
     saveSession(session, name) {
-        browser.notifications.create({
-            type: "basic",
-            iconUrl: "",
-            title: `save: ${name}`,
-            message: `session.length = ${session.length} ${JSON.stringify(session)}`,
-        });
-    }
-
-    deleteSession(session, name) {
-        for (let tab in session) {
+        const dbArray = this.sessionToDatabaseArray(session);
+        for (let tab in dbArray) {
             browser.notifications.create({
                 type: "basic",
                 iconUrl: "",
-                title: `delete: ${name}`,
-                message: `${JSON.stringify(this.mdnTabToDatabaseTabObject(session[tab]))}`,
+                title: `save: ${name}, length: ${dbArray.length}`,
+                message: `${JSON.stringify(dbArray[tab])}`,
+            });
+        }
+    }
+
+    deleteSession(session, name) {
+        const dbArray = this.sessionToDatabaseArray(session);
+        for (let tab in dbArray) {
+            browser.notifications.create({
+                type: "basic",
+                iconUrl: "",
+                title: `delete: ${name}, length: ${dbArray.length}`,
+                message: `${JSON.stringify(dbArray[tab])}`,
             });
         }
     }
 
     reopenSession(session, name) {
-        for (let tab in session) {
+        const dbArray = this.sessionToDatabaseArray(session);
+        for (let tab in dbArray) {
             browser.notifications.create({
                 type: "basic",
                 iconUrl: "",
-                title: `reopen: ${name}`,
-                message: `${JSON.stringify(this.mdnTabToDatabaseTabObject(tab))}`,
+                title: `reopen: ${name}, length: ${dbArray.length}`,
+                message: `${JSON.stringify(dbArray[tab])}`,
             });
         }
     }
@@ -41,6 +46,14 @@ class Engine {
     isSessionNameCorrect(name) {
         const sessionName = String(name);
         return sessionName.length !== 0;
+    }
+
+    sessionToDatabaseArray(session) {
+        let dbArray = [];
+        for (let tab in session) {
+            dbArray.push(this.mdnTabToDatabaseTabObject(session[tab]));
+        }
+        return dbArray;
     }
 
     mdnTabToDatabaseTabObject(mdnTabObject) {
