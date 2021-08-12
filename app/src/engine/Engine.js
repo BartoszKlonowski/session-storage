@@ -17,18 +17,18 @@ class Engine {
     }
 
     deleteSession(session, name) {
-        for(let tab in session) {
+        for (let tab in session) {
             browser.notifications.create({
                 type: "basic",
                 iconUrl: "",
                 title: `delete: ${name}`,
-                message: `${this.mdnTabToDatabaseTabObject(session[tab]).url}`,
+                message: `${JSON.stringify(this.mdnTabToDatabaseTabObject(session[tab]))}`,
             });
         }
     }
 
     reopenSession(session, name) {
-        for(let tab in session) {
+        for (let tab in session) {
             browser.notifications.create({
                 type: "basic",
                 iconUrl: "",
@@ -55,7 +55,7 @@ class Engine {
             lastAccessed: mdnTabObject.lastAccessed,
             pinned: mdnTabObject.pinned,
             windowId: mdnTabObject.windowId,
-            url: mdnTabObject.url
+            url: mdnTabObject.url,
         };
         return dbTab;
     }
