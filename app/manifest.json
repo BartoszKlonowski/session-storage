@@ -7,8 +7,16 @@
     "activeTab",
     "sessions",
     "tabs",
-    "unlimitedStorage"
+    "unlimitedStorage",
+		"contextMenus",
+		"storage",
+		"notifications",
+		"search"
   ],
+
+  "background": {
+    "scripts": ["src/engine/Background.js"]
+  },
 
   "icons": {
     "830": "icons/KeepYourSessionIcon.png"
