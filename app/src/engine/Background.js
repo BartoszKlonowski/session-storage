@@ -1,27 +1,17 @@
 import Engine from "./Engine";
+import Database from "./Database";
 
 let databaseHandler;
 
 window.onload = () => {
-    let request = window.indexedDB.open("sessionDB", 1);
-    request.onerror = () => {
-        browser.notifications.create({
-            type: "basic",
-            iconUrl: "",
-            title: `ERROR!`,
-            message: `Could not load database IDB`,
+    const db = new Database(window, browser);
+    db.openDatabase()
+        .then((db) => {
+            databaseHandler = db;
+        })
+        .catch(() => {
+            console.log("ERROR: Could not create or load a database!");
         });
-    };
-    request.onsuccess = () => {
-        databaseHandler = request.result;
-    };
-    request.onupgradeneeded = (arg) => {
-        if (arg !== null) {
-            databaseHandler = request.result.createObjectStore("sessionDB", {keyPath: "id", autoIncrement: true});
-            databaseHandler.createIndex("sessionName", "sessionName", {unique: false});
-            databaseHandler.createIndex("sessionObject", "sessionObject", {unique: false});
-        }
-    };
 };
 
 function saveInDatabase(sessionName, sessionData) {
@@ -53,9 +43,9 @@ function saveInDatabase(sessionName, sessionData) {
             message: `Could not write new entry to database IDB`,
         });
     };
-};
+}
 
-function loadFromDatabase(sessionName) {
+function loadFromDatabase() {
     let objectStore = databaseHandler.transaction("sessionDB").objectStore("sessionDB");
     objectStore.openCursor().onsuccess = (arg) => {
         let cursor = arg.target.result;
@@ -63,11 +53,11 @@ function loadFromDatabase(sessionName) {
             type: "basic",
             iconUrl: "",
             title: `DATA:`,
-            message: `${cursor.value.sessionName}, ${cursor.value.sessionObject}`,
+            message: `${JSON.stringify(cursor.value)}`,
         });
         cursor.continue();
     };
-};
+}
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const engine = new Engine(browser);
@@ -78,7 +68,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             switch (message.command) {
                 case "save":
                     correct = engine.saveSession(allTabs, message.session);
-                    saveInDatabase();
+                    saveInDatabase("session", "example");
                     break;
                 case "delete":
                     correct = engine.deleteSession(allTabs, message.session);
