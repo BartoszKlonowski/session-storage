@@ -5,7 +5,7 @@ let databaseHandler;
 
 window.onload = () => {
     const db = new Database(window, browser);
-    db.openDatabase()
+    db.open()
         .then((db) => {
             databaseHandler = db;
         })

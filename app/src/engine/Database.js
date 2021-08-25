@@ -3,7 +3,7 @@ class Database {
         this.window = window;
     }
 
-    openDatabase(dbNumber) {
+    open(dbNumber) {
         return new Promise((resolve, reject) => {
             const currentSchema = this.getSchema(this.dbNumberToSchemaIndex(dbNumber));
             let databaseHandle;
