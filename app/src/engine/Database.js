@@ -55,6 +55,20 @@ class Database {
         };
     }
 
+    delete(sessionName) {
+        try {
+            let transaction = this.instance.transaction("sessionDB", "readwrite");
+            transaction.objectStore("sessionDB").delete(sessionName);
+        } catch (exception) {
+            browser.notifications.create({
+                type: "basic",
+                iconUrl: "",
+                title: `EXCEPTION:`,
+                message: `${exception.message}`,
+            });
+        }
+    }
+
     getSchema(schemaId) {
         const schemas = [
             {
