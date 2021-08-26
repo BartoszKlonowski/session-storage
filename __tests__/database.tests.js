@@ -36,3 +36,25 @@ test("Session entry recognized as incorrect when NOT OK", () => {
     expect(testDb.isSessionCorrect(10, {key: 0})).toBe(false);
     expect(testDb.isSessionCorrect({id: 10}, "true")).toBe(false);
 });
+
+test("Session is loaded correctly", () => {
+    const testDb = new Database(window);
+    expect(testDb).toBeDefined();
+    const dbData = [
+        {sessionName: "testingSession", sessionData: "test1"},
+        {sessionName: "incorrectTestingSession", sessionData: "test2"},
+        {sessionName: "testingSession", sessionData: "test3"},
+        {sessionName: "testingSession", sessionData: "test4"},
+        {sessionName: "anotherTestingSession", sessionData: "test5"},
+    ];
+    let loadedData = [];
+
+    for (const loadedItem of dbData) {
+        testDb.pushToLoadedDataIfSessionMatch("testingSession", loadedData, loadedItem);
+    }
+
+    expect(loadedData.length).toBe(3);
+    expect(loadedData[0].sessionData).toBe("test1");
+    expect(loadedData[1].sessionData).toBe("test3");
+    expect(loadedData[2].sessionData).toBe("test4");
+});

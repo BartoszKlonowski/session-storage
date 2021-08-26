@@ -45,6 +45,16 @@ class Database {
         }
     }
 
+    load(sessionName) {
+        let sessionTabs = [];
+        let objectStore = this.instance.transaction("sessionDB").objectStore("sessionDB");
+        objectStore.openCursor().onsuccess = (arg) => {
+            let cursor = arg.target.result;
+            this.pushToLoadedDataIfSessionMatch(sessionName, sessionTabs, cursor.value);
+            cursor.continue();
+        };
+    }
+
     getSchema(schemaId) {
         const schemas = [
             {
@@ -66,6 +76,12 @@ class Database {
 
     isSessionCorrect(sessionName, sessionData) {
         return typeof sessionName === "string" && sessionData instanceof Object;
+    }
+
+    pushToLoadedDataIfSessionMatch(session, loadedData, item) {
+        if (session === item.sessionName) {
+            loadedData.push(item);
+        }
     }
 }
 
