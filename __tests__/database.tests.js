@@ -20,3 +20,19 @@ test("Database uses the correct schema", () => {
     expect(currentSchema.sessionObjectUnique).toBe(false);
     expect(currentSchema.id).toBe(1);
 });
+
+test("Session entry recognized as correct when OK", () => {
+    const testDb = new Database(window);
+    expect(testDb).toBeDefined();
+
+    expect(testDb.isSessionCorrect("OKSession", {id: 0})).toBe(true);
+});
+
+test("Session entry recognized as incorrect when NOT OK", () => {
+    const testDb = new Database(window);
+    expect(testDb).toBeDefined();
+
+    expect(testDb.isSessionCorrect("NOKSession", true)).toBe(false);
+    expect(testDb.isSessionCorrect(10, {key: 0})).toBe(false);
+    expect(testDb.isSessionCorrect({id: 10}, "true")).toBe(false);
+});

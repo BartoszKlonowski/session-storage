@@ -14,37 +14,6 @@ window.onload = () => {
         });
 };
 
-function saveInDatabase(sessionName, sessionData) {
-    const newSession = {sessionName: sessionName, sessionObject: sessionData};
-    let transaction = databaseHandler.transaction("sessionDB", "readwrite");
-    let request = transaction.objectStore("sessionDB").add(newSession);
-
-    request.onsuccess = () => {
-        browser.notifications.create({
-            type: "basic",
-            iconUrl: "",
-            title: `OK!`,
-            message: `Written new entry to database IDB`,
-        });
-    };
-    transaction.oncomplete = () => {
-        browser.notifications.create({
-            type: "basic",
-            iconUrl: "",
-            title: `OK!`,
-            message: `Transaction completed`,
-        });
-    };
-    transaction.onerror = () => {
-        browser.notifications.create({
-            type: "basic",
-            iconUrl: "",
-            title: `ERROR!`,
-            message: `Could not write new entry to database IDB`,
-        });
-    };
-}
-
 function loadFromDatabase() {
     let objectStore = databaseHandler.transaction("sessionDB").objectStore("sessionDB");
     objectStore.openCursor().onsuccess = (arg) => {
@@ -67,8 +36,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             let correct = false;
             switch (message.command) {
                 case "save":
-                    correct = engine.saveSession(allTabs, message.session);
-                    saveInDatabase("session", "example");
+                    correct = engine.saveSession(allTabs, message.session, browser.notifications.create);
                     break;
                 case "delete":
                     correct = engine.deleteSession(allTabs, message.session);

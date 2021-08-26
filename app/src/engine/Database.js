@@ -1,6 +1,7 @@
 class Database {
     constructor(window) {
         this.window = window;
+        this.instance = {};
     }
 
     open(dbNumber) {
@@ -12,6 +13,7 @@ class Database {
                 reject();
             };
             request.onsuccess = () => {
+                this.instance = request.result;
                 resolve(request.result);
             };
             request.onupgradeneeded = (arg) => {
@@ -28,6 +30,19 @@ class Database {
                 resolve(request.result);
             };
         });
+    }
+
+    save(sessionName, tab) {
+        if (this.isSessionCorrect(sessionName, tab) === true) {
+            const newSession = {sessionName: sessionName, sessionObject: tab};
+            let transaction = this.instance.transaction("sessionDB", "readwrite");
+            transaction.objectStore("sessionDB").add(newSession);
+            transaction.onerror = () => {
+                console.log("ERROR: Could not write to database - entry did not saved!");
+            };
+        } else {
+            console.log("ERROR: Incorrect session - could not write to database!");
+        }
     }
 
     getSchema(schemaId) {
@@ -47,6 +62,10 @@ class Database {
 
     dbNumberToSchemaIndex(dbNumber) {
         return dbNumber > 0 ? dbNumber - 1 : 0;
+    }
+
+    isSessionCorrect(sessionName, sessionData) {
+        return typeof sessionName === "string" && sessionData instanceof Object;
     }
 }
 
