@@ -2,10 +2,11 @@ import Engine from "./Engine";
 import Database from "./Database";
 
 let databaseHandler;
+const databaseSchemaVersionNumber = 1;
 
 window.onload = () => {
-    const db = new Database(window, browser);
-    db.open()
+    const db = new Database(window);
+    db.open(databaseSchemaVersionNumber)
         .then((db) => {
             databaseHandler = db;
             databaseHandler;

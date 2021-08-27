@@ -53,6 +53,7 @@ class Database {
             this.pushToLoadedDataIfSessionMatch(sessionName, sessionTabs, cursor.value);
             cursor.continue();
         };
+        return sessionTabs;
     }
 
     delete(sessionName) {
