@@ -1,4 +1,20 @@
 import Engine from "./Engine";
+import Database from "./Database";
+
+let databaseHandler;
+const databaseSchemaVersionNumber = 1;
+
+window.onload = () => {
+    const db = new Database(window);
+    db.open(databaseSchemaVersionNumber)
+        .then((db) => {
+            databaseHandler = db;
+            databaseHandler;
+        })
+        .catch(() => {
+            console.log("ERROR: Could not create or load a database!");
+        });
+};
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const engine = new Engine(browser);
