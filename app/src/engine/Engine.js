@@ -7,38 +7,49 @@ class Engine {
         return this.browser.tabs.query({currentWindow: true});
     }
 
-    saveSession(session, name) {
+    saveSession(session, name, db) {
+        browser.notifications.create({
+            type: "basic",
+            iconUrl: "",
+            title: `saveSession:`,
+            message: `db is null: ${db === null} or db is undefined: ${db === undefined}`,
+        });
         const dbArray = this.sessionToDatabaseArray(session);
-        for (let tab in dbArray) {
+        for (let tab of dbArray) {
             browser.notifications.create({
                 type: "basic",
                 iconUrl: "",
                 title: `save: ${name}, length: ${dbArray.length}`,
-                message: `${JSON.stringify(dbArray[tab])}`,
+                message: `${JSON.stringify(tab)}`,
             });
+            db.save(name, tab);
         }
     }
 
-    deleteSession(session, name) {
-        const dbArray = this.sessionToDatabaseArray(session);
-        for (let tab in dbArray) {
-            browser.notifications.create({
-                type: "basic",
-                iconUrl: "",
-                title: `delete: ${name}, length: ${dbArray.length}`,
-                message: `${JSON.stringify(dbArray[tab])}`,
-            });
-        }
+    deleteSession(name, db) {
+        browser.notifications.create({
+            type: "basic",
+            iconUrl: "",
+            title: `deleteSession:`,
+            message: `db is null: ${db === null} or db is undefined: ${db === undefined}`,
+        });
+        db.delete(name);
     }
 
-    reopenSession(session, name) {
-        const dbArray = this.sessionToDatabaseArray(session);
-        for (let tab in dbArray) {
+    reopenSession(name, db) {
+        browser.notifications.create({
+            type: "basic",
+            iconUrl: "",
+            title: `reopenSession:`,
+            message: `db is null: ${db === null} or db is undefined: ${db === undefined}`,
+        });
+        const dbArray = db.load(name);
+        for (let tab of dbArray) {
             browser.notifications.create({
                 type: "basic",
                 iconUrl: "",
                 title: `reopen: ${name}, length: ${dbArray.length}`,
-                message: `${JSON.stringify(dbArray[tab])}`,
+                message: `${JSON.stringify(tab)}`,
             });
         }
     }
