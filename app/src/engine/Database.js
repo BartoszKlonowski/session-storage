@@ -5,6 +5,8 @@ class Database {
         this.storage = window.localStorage;
     }
 
+    initialize() {}
+
     open(dbNumber) {
         return new Promise((resolve, reject) => {
             const currentSchema = this.getSchema(this.dbNumberToSchemaIndex(dbNumber));
@@ -92,6 +94,20 @@ class Database {
 
     isSessionCorrect(sessionName, sessionData) {
         return typeof sessionName === "string" && sessionData instanceof Object;
+    }
+
+    addSessionNameToDbTabsObject(dbTabsObject, sessionName) {
+        let sessionNameForDbObject = undefined;
+        if (this.isSessionCorrect(sessionName, dbTabsObject) === true) {
+            sessionNameForDbObject = sessionName;
+        } else {
+            console.log("ERROR: Incorrect session name given - returning undefined");
+        }
+        const dbObject = {
+            sessionName: sessionNameForDbObject,
+            sessionTabs: dbTabsObject,
+        };
+        return dbObject;
     }
 
     pushToLoadedDataIfSessionMatch(session, loadedData, item) {

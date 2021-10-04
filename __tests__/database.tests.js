@@ -62,4 +62,15 @@ test("Session is loaded correctly", () => {
 test("Local storage gets created successfully", () => {
     const testDb = new Database(window);
     expect(testDb.storage).toBeInstanceOf(Storage);
-})
+});
+
+test("Session object is extended successfully when session name is correct", () => {
+    const testDb = new Database(window);
+    const testDbTabsObject = {isActive: true, isTest: true, isFinite: false};
+    const sessionName = "testing session - correct name";
+    const result = testDb.addSessionNameToDbTabsObject(testDbTabsObject, sessionName);
+    expect(result).toMatchObject({
+        sessionName: "testing session - correct name",
+        sessionTabs: {isActive: true, isTest: true, isFinite: false},
+    });
+});
