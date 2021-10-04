@@ -58,3 +58,8 @@ test("Session is loaded correctly", () => {
     expect(loadedData[1].sessionData).toBe("test3");
     expect(loadedData[2].sessionData).toBe("test4");
 });
+
+test("Local storage gets created successfully", () => {
+    const testDb = new Database(window);
+    expect(testDb.storage).toBeInstanceOf(Storage);
+})

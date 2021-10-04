@@ -2,6 +2,7 @@ class Database {
     constructor(window) {
         this.window = window;
         this.instance = {};
+        this.storage = window.localStorage;
     }
 
     open(dbNumber) {
