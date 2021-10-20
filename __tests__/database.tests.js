@@ -25,7 +25,7 @@ test("Session entry recognized as correct when OK", () => {
     const testDb = new Database(window);
     expect(testDb).toBeDefined();
 
-    expect(testDb.isSessionCorrect("OKSession", {id: 0})).toBe(true);
+    expect(testDb.isSessionCorrect("OKSession", [{id: 0}, {id: 1}])).toBe(true);
 });
 
 test("Session entry recognized as incorrect when NOT OK", () => {
@@ -66,11 +66,17 @@ test("Local storage gets created successfully", () => {
 
 test("Session object is extended successfully when session name is correct", () => {
     const testDb = new Database(window);
-    const testDbTabsObject = {isActive: true, isTest: true, isFinite: false};
+    const testDbTabsObject = [
+        {isActive: true, isTest: true, isFinite: false},
+        {isActive: true, isTest: true, isFinite: false},
+    ];
     const sessionName = "testing session - correct name";
     const result = testDb.addSessionNameToDbTabsObject(testDbTabsObject, sessionName);
     expect(result).toMatchObject({
         sessionName: "testing session - correct name",
-        sessionTabs: {isActive: true, isTest: true, isFinite: false},
+        sessionTabs: [
+            {isActive: true, isTest: true, isFinite: false},
+            {isActive: true, isTest: true, isFinite: false},
+        ],
     });
 });

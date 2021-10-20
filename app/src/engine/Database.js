@@ -35,9 +35,9 @@ class Database {
         });
     }
 
-    save(sessionName, tab) {
-        if (this.isSessionCorrect(sessionName, tab) === true) {
-            const newSession = {sessionName: sessionName, sessionObject: tab};
+    save(sessionName, tabs) {
+        if (this.isSessionCorrect(sessionName, tabs) === true) {
+            const newSession = {sessionName: sessionName, sessionObject: tabs};
             let transaction = this.instance.transaction("sessionDB", "readwrite");
             transaction.objectStore("sessionDB").add(newSession);
             transaction.onerror = () => {
@@ -93,7 +93,7 @@ class Database {
     }
 
     isSessionCorrect(sessionName, sessionData) {
-        return typeof sessionName === "string" && sessionData instanceof Object;
+        return typeof sessionName === "string" && sessionData.length > 0;
     }
 
     addSessionNameToDbTabsObject(dbTabsObject, sessionName) {
