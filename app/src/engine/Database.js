@@ -56,7 +56,7 @@ class Database {
         try {
             const sessionData = this.storage.getItem(name);
             return JSON.parse(sessionData);
-        } catch(exception) {
+        } catch (exception) {
             console.log("ERROR: Could not read from database: ", exception);
         }
     }
