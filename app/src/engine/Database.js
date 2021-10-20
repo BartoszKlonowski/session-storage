@@ -1,8 +1,10 @@
 class Database {
-    constructor(window) {
-        this.window = window;
+    constructor() {
         this.instance = {};
+        this.storage = window.localStorage;
     }
+
+    initialize() {}
 
     open(dbNumber) {
         return new Promise((resolve, reject) => {
@@ -32,9 +34,36 @@ class Database {
         });
     }
 
-    save(sessionName, tab) {
-        if (this.isSessionCorrect(sessionName, tab) === true) {
-            const newSession = {sessionName: sessionName, sessionObject: tab};
+    saveSession(name, tabs) {
+        if (this.isSessionCorrect(name, tabs) === true) {
+            try {
+                this.storage.setItem(name, `${JSON.stringify(tabs)}`);
+            } catch (exception) {
+                console.log(`ERROR: `, exception);
+            }
+        }
+    }
+
+    deleteSession(name) {
+        try {
+            this.storage.removeItem(name);
+        } catch (exception) {
+            console.log("ERROR: Could not remove the item. ", exception);
+        }
+    }
+
+    loadSession(name) {
+        try {
+            const sessionData = this.storage.getItem(name);
+            return JSON.parse(sessionData);
+        } catch (exception) {
+            console.log("ERROR: Could not read from database: ", exception);
+        }
+    }
+
+    save(sessionName, tabs) {
+        if (this.isSessionCorrect(sessionName, tabs) === true) {
+            const newSession = {sessionName: sessionName, sessionObject: tabs};
             let transaction = this.instance.transaction("sessionDB", "readwrite");
             transaction.objectStore("sessionDB").add(newSession);
             transaction.onerror = () => {
@@ -90,7 +119,21 @@ class Database {
     }
 
     isSessionCorrect(sessionName, sessionData) {
-        return typeof sessionName === "string" && sessionData instanceof Object;
+        return typeof sessionName === "string" && sessionData.length > 0;
+    }
+
+    addSessionNameToDbTabsObject(dbTabsObject, sessionName) {
+        let sessionNameForDbObject = undefined;
+        if (this.isSessionCorrect(sessionName, dbTabsObject) === true) {
+            sessionNameForDbObject = sessionName;
+        } else {
+            console.log("ERROR: Incorrect session name given - returning undefined");
+        }
+        const dbObject = {
+            sessionName: sessionNameForDbObject,
+            sessionTabs: dbTabsObject,
+        };
+        return dbObject;
     }
 
     pushToLoadedDataIfSessionMatch(session, loadedData, item) {
