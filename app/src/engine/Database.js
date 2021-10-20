@@ -1,6 +1,5 @@
 class Database {
-    constructor(window) {
-        this.window = window;
+    constructor() {
         this.instance = {};
         this.storage = window.localStorage;
     }
@@ -38,7 +37,7 @@ class Database {
     saveSession(name, tabs) {
         if (this.isSessionCorrect(name, tabs) === true) {
             try {
-                window.localStorage.setItem(name, `${JSON.stringify(tabs)}`);
+                this.storage.setItem(name, `${JSON.stringify(tabs)}`);
             } catch (exception) {
                 console.log(`ERROR: `, exception);
             }

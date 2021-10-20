@@ -3,7 +3,7 @@ import Database from "./Database";
 class Engine {
     constructor(browser) {
         this.browser = browser;
-        this.db = new Database(window);
+        this.db = new Database();
     }
 
     pullAllOpenedTabs() {
