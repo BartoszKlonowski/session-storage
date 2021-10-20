@@ -1,6 +1,9 @@
+import Database from "./Database";
+
 class Engine {
     constructor(browser) {
         this.browser = browser;
+        this.db = new Database(window);
     }
 
     pullAllOpenedTabs() {
@@ -9,14 +12,7 @@ class Engine {
 
     saveSession(session, name) {
         const dbArray = this.sessionToDatabaseArray(session);
-        for (let tab in dbArray) {
-            browser.notifications.create({
-                type: "basic",
-                iconUrl: "",
-                title: `save: ${name}, length: ${dbArray.length}`,
-                message: `${JSON.stringify(dbArray[tab])}`,
-            });
-        }
+        this.db.saveSession(name, dbArray);
     }
 
     deleteSession(session, name) {

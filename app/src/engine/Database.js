@@ -35,6 +35,16 @@ class Database {
         });
     }
 
+    saveSession(name, tabs) {
+        if (this.isSessionCorrect(name, tabs) === true) {
+            try {
+                window.localStorage.setItem(name, `${JSON.stringify(tabs)}`);
+            } catch (exception) {
+                console.log(`ERROR: `, exception);
+            }
+        }
+    }
+
     save(sessionName, tabs) {
         if (this.isSessionCorrect(sessionName, tabs) === true) {
             const newSession = {sessionName: sessionName, sessionObject: tabs};
