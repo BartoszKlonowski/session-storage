@@ -52,6 +52,15 @@ class Database {
         }
     }
 
+    loadSession(name) {
+        try {
+            const sessionData = this.storage.getItem(name);
+            return JSON.parse(sessionData);
+        } catch(exception) {
+            console.log("ERROR: Could not read from database: ", exception);
+        }
+    }
+
     save(sessionName, tabs) {
         if (this.isSessionCorrect(sessionName, tabs) === true) {
             const newSession = {sessionName: sessionName, sessionObject: tabs};
