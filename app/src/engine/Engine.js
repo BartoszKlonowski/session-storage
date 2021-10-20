@@ -15,16 +15,8 @@ class Engine {
         this.db.saveSession(name, dbArray);
     }
 
-    deleteSession(session, name) {
-        const dbArray = this.sessionToDatabaseArray(session);
-        for (let tab in dbArray) {
-            browser.notifications.create({
-                type: "basic",
-                iconUrl: "",
-                title: `delete: ${name}, length: ${dbArray.length}`,
-                message: `${JSON.stringify(dbArray[tab])}`,
-            });
-        }
+    deleteSession(name) {
+        this.db.deleteSession(name);
     }
 
     reopenSession(session, name) {

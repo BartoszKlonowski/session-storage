@@ -44,6 +44,14 @@ class Database {
         }
     }
 
+    deleteSession(name) {
+        try {
+            this.storage.removeItem(name);
+        } catch (exception) {
+            console.log("ERROR: Could not remove the item. ", exception);
+        }
+    }
+
     save(sessionName, tabs) {
         if (this.isSessionCorrect(sessionName, tabs) === true) {
             const newSession = {sessionName: sessionName, sessionObject: tabs};

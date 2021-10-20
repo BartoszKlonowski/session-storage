@@ -27,7 +27,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     correct = engine.saveSession(allTabs, message.session);
                     break;
                 case "delete":
-                    correct = engine.deleteSession(allTabs, message.session);
+                    correct = engine.deleteSession(message.session);
                     break;
                 case "reopen":
                     correct = engine.reopenSession(allTabs, message.session);
