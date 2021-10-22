@@ -1,5 +1,5 @@
 {
-  "name": "keep-your-session",
+  "name": "session-storage",
   "version": "0.1.0",
   "description": "Mozilla Firefox extension plugin to store and manage browsing sessions",
   "main": "manifest.json",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BartoszKlonowski/keep-your-session.git"
+    "url": "git+https://github.com/BartoszKlonowski/session-storage.git"
   },
   "keywords": [
     "Firefox",
@@ -21,9 +21,9 @@
   "author": "Bartosz Klonowski",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/BartoszKlonowski/keep-your-session/issues"
+    "url": "https://github.com/BartoszKlonowski/session-storage/issues"
   },
-  "homepage": "https://github.com/BartoszKlonowski/keep-your-session#readme",
+  "homepage": "https://github.com/BartoszKlonowski/session-storage#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
