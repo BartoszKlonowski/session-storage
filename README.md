@@ -4,13 +4,13 @@
 </p>
 <p align="center">
     <a href="https://github.com/BartoszKlonowski/ExtendedVector/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/BartoszKlonowski/keep-your-session?style=plastic" alt="KeepYourSession is released under the GNU GPL v3 license." />
+        <img src="https://img.shields.io/github/license/BartoszKlonowski/keep-your-session?style=plastic" alt="SessionStorage is released under the GNU GPL v3 license." />
     </a>
     <a href="https://github.com/BartoszKlonowski/keep-your-session/actions/workflows/keep-your-session-CI.yml">
-        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/keep-your-session/KeepYourSession-CI?label=Tests&style=plastic" alt="Unit Tests status" />
+        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/keep-your-session/SessionStorage-CI?label=Tests&style=plastic" alt="Unit Tests status" />
     </a>
-    <a href="https://github.com/BartoszKlonowski/keep-your-session/actions/workflows/KeepYourSession-CI.yml">
-        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/keep-your-session/KeepYourSession-CI?label=Verify%3A%20ESLint&style=plastic" alt="Source: ESLint verification status" />
+    <a href="https://github.com/BartoszKlonowski/keep-your-session/actions/workflows/SessionStorage-CI.yml">
+        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/keep-your-session/SessionStorage-CI?label=Verify%3A%20ESLint&style=plastic" alt="Source: ESLint verification status" />
     </a>
 </p>
 
@@ -31,7 +31,7 @@ You can use this extension by:
 * downloading it directly from the [Releases page](https://github.com/BartoszKlonowski/keep-your-session/releases) and install it manually in your browser
 > Official package will appear in the browser add-ons market only after v1.0.0 release.
 > Please stay tuned!
->* installing it via the Mozilla add-ons market under the [following link](https://addons.mozilla.org/pl/firefox/addon/keepyoursession/) to the officialy published package
+>* installing it via the Mozilla add-ons market under the [following link](https://addons.mozilla.org/pl/firefox/addon/SessionStorage/) to the officialy published package
 
 After successful installation you will see the extension icon in the upper-right corner of your browser.
 Click it for the popup to appear and use it just like presented below:
@@ -50,7 +50,7 @@ This plugin is easy to use and most user-friendly, but to improve the user-exper
 
 ## Contributing ##
 
-If you would like to contribute to the *KeepYourSession* project, you are more than welcome!
+If you would like to contribute to the *SessionStorage* project, you are more than welcome!
 <br/>Any contribution is to make the project better and to improve the user's experience.
 <br/>So if you'd like to contribute, you can do this in one of the following ways:
 

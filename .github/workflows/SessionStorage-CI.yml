@@ -1,4 +1,4 @@
-name: KeepYourSession-CI
+name: SessionStorage-CI
 
 on: [push]
 
