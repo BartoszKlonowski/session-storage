@@ -5,31 +5,29 @@ import ReactDOM from "react-dom";
 export class MainPopup extends React.Component {
     render() {
         return (
-            <>
-                <div id="popup-content">
-                    <div className="panel-plugin-name">
-                        <a href="https://github.com/BartoszKlonowski/keep-your-session">Keep Your Session</a>
-                    </div>
-
-                    <form id="mainForm">
-                        <div className="panel-session-name">
-                            <input id="sessionNameInput" list="sessions" type="text" placeholder="..." autoFocus />
-                            <datalist id="sessions"></datalist>
-                        </div>
-                        <div className="panel-actions">
-                            <button type="submit" id="saveButton">
-                                <i className="glyphicon glyphicon-floppy-disk"></i>
-                            </button>
-                            <button type="submit" id="deleteButton">
-                                <i className="glyphicon glyphicon-trash"></i>
-                            </button>
-                            <button type="submit" id="reopenButton">
-                                <i className="glyphicon glyphicon-refresh"></i>
-                            </button>
-                        </div>
-                    </form>
+            <div id="popup-content">
+                <div className="panel-plugin-name">
+                    <a href="https://github.com/BartoszKlonowski/keep-your-session">Keep Your Session</a>
                 </div>
-            </>
+
+                <form id="mainForm">
+                    <div className="panel-session-name">
+                        <input id="sessionNameInput" list="sessions" type="text" placeholder="..." autoFocus />
+                        <datalist id="sessions"></datalist>
+                    </div>
+                    <div className="panel-actions">
+                        <button type="submit" id="saveButton">
+                            <i className="glyphicon glyphicon-floppy-disk"></i>
+                        </button>
+                        <button type="submit" id="deleteButton">
+                            <i className="glyphicon glyphicon-trash"></i>
+                        </button>
+                        <button type="submit" id="reopenButton">
+                            <i className="glyphicon glyphicon-refresh"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
         );
     }
 }
