@@ -7,7 +7,7 @@ export class MainPopup extends React.Component {
         super(props);
         this.state = {
             extensionName: "Session Storage",
-        }
+        };
     }
 
     render() {
