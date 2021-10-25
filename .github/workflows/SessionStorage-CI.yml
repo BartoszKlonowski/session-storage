@@ -90,7 +90,7 @@ jobs:
           key: ${{ hashFiles('./package.json') }}
 
       - name: Verify the package
-        run: npx web-ext --source-dir "./app" lint
+        run: npx web-ext --source-dir "./build" lint
 
 
   pre-build-package-compile:
