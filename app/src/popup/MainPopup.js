@@ -1,36 +1,38 @@
 import * as logic from "./MainPopupLogic";
-import * as React from 'react';
+import * as React from "react";
 import ReactDOM from "react-dom";
 
 export class MainPopup extends React.Component {
     render() {
-        return(
+        return (
             <>
-            <div id="popup-content">
+                <div id="popup-content">
+                    <div className="panel-plugin-name">
+                        <a href="https://github.com/BartoszKlonowski/keep-your-session">Keep Your Session</a>
+                    </div>
 
-            <div class="panel-plugin-name">
-              <a href="https://github.com/BartoszKlonowski/keep-your-session">Keep Your Session</a>
-            </div>
-      
-            <form id="mainForm">
-              <div class="panel-session-name">
-                <input id="sessionNameInput" list="sessions" type="text" placeholder="..." autofocus/>
-                <datalist id="sessions"></datalist>
-              </div>
-              <div class="panel-actions">
-                <button type="submit" id="saveButton"><i class="glyphicon glyphicon-floppy-disk"></i></button>
-                <button type="submit" id="deleteButton"><i class="glyphicon glyphicon-trash"></i></button>
-                <button type="submit" id="reopenButton"><i class="glyphicon glyphicon-refresh"></i></button>
-              </div>
-            </form>
-          </div>
-          </>
-        )
+                    <form id="mainForm">
+                        <div className="panel-session-name">
+                            <input id="sessionNameInput" list="sessions" type="text" placeholder="..." autoFocus />
+                            <datalist id="sessions"></datalist>
+                        </div>
+                        <div className="panel-actions">
+                            <button type="submit" id="saveButton">
+                                <i className="glyphicon glyphicon-floppy-disk"></i>
+                            </button>
+                            <button type="submit" id="deleteButton">
+                                <i className="glyphicon glyphicon-trash"></i>
+                            </button>
+                            <button type="submit" id="reopenButton">
+                                <i className="glyphicon glyphicon-refresh"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </>
+        );
     }
 }
 
 logic.listenForClicks(document, browser);
-ReactDOM.render(
-    <MainPopup />,
-    document.getElementById('root')
-);
+ReactDOM.render(<MainPopup />, document.getElementById("root"));
