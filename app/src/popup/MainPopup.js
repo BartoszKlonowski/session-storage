@@ -3,11 +3,18 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 
 export class MainPopup extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            extensionName: "Session Storage",
+        }
+    }
+
     render() {
         return (
             <div id="popup-content">
                 <div className="panel-plugin-name">
-                    <a href="https://github.com/BartoszKlonowski/keep-your-session">Keep Your Session</a>
+                    <a href="https://github.com/BartoszKlonowski/session-storage">{this.state.extensionName}</a>
                 </div>
 
                 <form id="mainForm">
