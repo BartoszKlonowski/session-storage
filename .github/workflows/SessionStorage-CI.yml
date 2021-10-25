@@ -74,7 +74,7 @@ jobs:
   pre-build-package-verify:
     name: Verify the package before build
     runs-on: windows-latest
-    needs: [verify]
+    needs: [verify, pre-build-package-compile]
 
     steps:
       - name: Checkout repository
@@ -89,8 +89,14 @@ jobs:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
+      - name: Pull the compiled sources
+        uses: actions/cache@v2.1.6
+        with:
+          path: ./build
+          key: ${{ hashFiles('./app/manifest.json') }}
+
       - name: Verify the package
-        run: npx web-ext --source-dir "./app" lint
+        run: npx web-ext --source-dir "./build" lint
 
 
   pre-build-package-compile:
