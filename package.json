@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode development",
-    "install": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode production"
+    "deploy": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode production"
   },
   "repository": {
     "type": "git",
