@@ -19,14 +19,15 @@ class Engine {
         this.db.deleteSession(name);
     }
 
-    reopenSession(session, name) {
-        const dbArray = this.sessionToDatabaseArray(session);
-        for (let tab in dbArray) {
+    reopenSession(name) {
+        const tabsArray = this.db.loadSession(name);
+        for (let tab of tabsArray) {
+            console.log("item in tabsArray: ", tab);
             browser.notifications.create({
                 type: "basic",
                 iconUrl: "",
-                title: `reopen: ${name}, length: ${dbArray.length}`,
-                message: `${JSON.stringify(dbArray[tab])}`,
+                title: `reopen: ${name}, length: ${tabsArray.length}`,
+                message: `${JSON.stringify(tab)}`,
             });
         }
     }
