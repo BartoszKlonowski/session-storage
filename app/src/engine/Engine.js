@@ -19,15 +19,11 @@ class Engine {
         this.db.deleteSession(name);
     }
 
-    reopenSession(session, name) {
-        const dbArray = this.sessionToDatabaseArray(session);
-        for (let tab in dbArray) {
-            browser.notifications.create({
-                type: "basic",
-                iconUrl: "",
-                title: `reopen: ${name}, length: ${dbArray.length}`,
-                message: `${JSON.stringify(dbArray[tab])}`,
-            });
+    reopenSession(name) {
+        const tabsArray = this.db.loadSession(name);
+        for (let tab of tabsArray) {
+            console.log("item in tabsArray: ", tab);
+            browser.tabs.create(tab);
         }
     }
 
@@ -47,13 +43,7 @@ class Engine {
     mdnTabToDatabaseTabObject(mdnTabObject) {
         const dbTab = {
             active: mdnTabObject.active,
-            hidden: mdnTabObject.hidden,
-            highlighted: mdnTabObject.highlighted,
-            incognito: mdnTabObject.incognito,
             index: mdnTabObject.index,
-            isArticle: mdnTabObject.isArticle,
-            isInReaderMode: mdnTabObject.isInReaderMode,
-            lastAccessed: mdnTabObject.lastAccessed,
             pinned: mdnTabObject.pinned,
             windowId: mdnTabObject.windowId,
             url: mdnTabObject.url,

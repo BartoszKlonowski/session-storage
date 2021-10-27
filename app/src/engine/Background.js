@@ -30,7 +30,7 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     correct = engine.deleteSession(message.session);
                     break;
                 case "reopen":
-                    correct = engine.reopenSession(allTabs, message.session);
+                    correct = engine.reopenSession(message.session);
                     break;
                 default:
                     throw {message: `Unrecognized action from ${sender}`};
