@@ -80,3 +80,21 @@ test("Session object is extended successfully when session name is correct", () 
         ],
     });
 });
+
+test("Stored sessions are extended correctly with new session", () => {
+    const testDb = new Database();
+    let allSessions = ["firstSession", "tested existing session"];
+    const originalStorageLength = allSessions.length;
+    allSessions = testDb.addNewSessionNameToStorage("newSession", allSessions);
+    expect(allSessions.length).toBe(originalStorageLength + 1);
+    expect(allSessions[originalStorageLength]).toBe("newSession");
+});
+
+test("Stored sessions are not extended when session already exists", () => {
+    const testDb = new Database();
+    let allSessions = ["firstSession", "tested existing session", "already existing session"];
+    const originalStorageLength = allSessions.length;
+    allSessions = testDb.addNewSessionNameToStorage("already existing session", allSessions);
+    expect(allSessions.length).toBe(originalStorageLength);
+    expect(allSessions[0]).toBe("firstSession");
+});

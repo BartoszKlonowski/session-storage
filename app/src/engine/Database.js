@@ -141,6 +141,22 @@ class Database {
             loadedData.push(item);
         }
     }
+
+    addNewSessionNameToStorage(newSessionName, allSessions) {
+        if (!this.sessionNameAlreadyExistsInStorage(newSessionName, allSessions)) {
+            return [...allSessions, newSessionName];
+        } else {
+            return allSessions;
+        }
+    }
+
+    sessionNameAlreadyExistsInStorage(sessionName, allSessions) {
+        return (
+            allSessions.find((session) => {
+                return session === sessionName;
+            }) === sessionName
+        );
+    }
 }
 
 export default Database;
