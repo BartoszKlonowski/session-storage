@@ -106,4 +106,4 @@ test("Stored session is correctly removed from storage array", () => {
     allSessions = testDb.removeSessionNameFromStorage("session to delete", allSessions);
     expect(allSessions.length).toBe(originalStorageLength - 1);
     expect(allSessions[2]).toBe("already existing session");
-})
+});
