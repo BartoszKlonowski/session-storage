@@ -150,6 +150,14 @@ class Database {
         }
     }
 
+    removeSessionNameFromStorage(deletingSessionName, allSessions) {
+        var index = allSessions.indexOf(deletingSessionName);
+        if (index > -1) {
+          allSessions.splice(index, 1);
+        }
+        return allSessions;
+    }
+
     sessionNameAlreadyExistsInStorage(sessionName, allSessions) {
         return (
             allSessions.find((session) => {

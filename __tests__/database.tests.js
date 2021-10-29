@@ -98,3 +98,12 @@ test("Stored sessions are not extended when session already exists", () => {
     expect(allSessions.length).toBe(originalStorageLength);
     expect(allSessions[0]).toBe("firstSession");
 });
+
+test("Stored session is correctly removed from storage array", () => {
+    const testDb = new Database();
+    let allSessions = ["firstSession", "tested existing session", "session to delete", "already existing session"];
+    const originalStorageLength = allSessions.length;
+    allSessions = testDb.removeSessionNameFromStorage("session to delete", allSessions);
+    expect(allSessions.length).toBe(originalStorageLength - 1);
+    expect(allSessions[2]).toBe("already existing session");
+})
