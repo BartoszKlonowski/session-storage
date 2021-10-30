@@ -99,6 +99,28 @@ test("Stored sessions are not extended when session already exists", () => {
     expect(allSessions[0]).toBe("firstSession");
 });
 
+test("Adding new session to empty storage creates the storage array", () => {
+    const testDb = new Database();
+    let allSessions = undefined;
+    allSessions = testDb.addNewSessionNameToStorage("the only existing session", allSessions);
+    expect(allSessions.length).toBe(1);
+    expect(allSessions[0]).toBe("the only existing session");
+});
+
+test("Session name doesn't exist if session array is empty", () => {
+    const testDb = new Database();
+    let allSessions = [];
+    const exists = testDb.sessionNameAlreadyExistsInStorage("already existing session", allSessions);
+    expect(exists).toBe(false);
+});
+
+test("Session name doesn't exist if session array is falsy", () => {
+    const testDb = new Database();
+    let allSessions = undefined;
+    const exists = testDb.sessionNameAlreadyExistsInStorage("already existing session", allSessions);
+    expect(exists).toBe(false);
+});
+
 test("Stored session is correctly removed from storage array", () => {
     const testDb = new Database();
     let allSessions = ["firstSession", "tested existing session", "session to delete", "already existing session"];

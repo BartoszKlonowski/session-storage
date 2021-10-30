@@ -158,6 +158,9 @@ class Database {
     }
 
     addNewSessionNameToStorage(newSessionName, allSessions) {
+        if (!allSessions) {
+            return [newSessionName];
+        }
         if (!this.sessionNameAlreadyExistsInStorage(newSessionName, allSessions)) {
             return [...allSessions, newSessionName];
         } else {
@@ -174,11 +177,15 @@ class Database {
     }
 
     sessionNameAlreadyExistsInStorage(sessionName, allSessions) {
-        return (
-            allSessions.find((session) => {
-                return session === sessionName;
-            }) === sessionName
-        );
+        if (allSessions && allSessions.length > 0) {
+            return (
+                allSessions?.find((session) => {
+                    return session === sessionName;
+                }) === sessionName
+            );
+        } else {
+            return false;
+        }
     }
 }
 
