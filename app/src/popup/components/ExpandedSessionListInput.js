@@ -5,17 +5,24 @@ export class ExpandedSessionListInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sessions: []
+            sessions: [],
         };
     }
 
     componentDidMount() {
         const storage = new Database();
+        this.setState({sessions: storage.loadSessions()});
     }
 
     render() {
-        return(
+        let options = [];
+        for (const sessionName of this.state.sessions) {
+            options.push(<option value={sessionName}></option>);
+        }
+        return (
             <>
+                <input list="allSessions" type="text" className="session-name-input" placeholder="..." />
+                <datalist id="allSessions">{options}</datalist>
             </>
         );
     }
