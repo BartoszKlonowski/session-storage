@@ -69,7 +69,7 @@ class Database {
 
     loadSessions() {
         const sessionsArray = this.storage.getItem("sessions");
-        if(sessionsArray) {
+        if (sessionsArray) {
             return JSON.parse(sessionsArray);
         } else {
             return [];

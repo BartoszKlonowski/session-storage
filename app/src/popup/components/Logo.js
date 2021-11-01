@@ -6,10 +6,7 @@ export class Logo extends React.Component {
     }
 
     render() {
-        return(
-            <>
-            </>
-        );
+        return <></>;
     }
 }
 
