@@ -1,6 +1,7 @@
 import * as logic from "./MainPopupLogic";
 import * as React from "react";
 import ReactDOM from "react-dom";
+import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
 
 export class MainPopup extends React.Component {
     constructor(props) {
@@ -19,8 +20,7 @@ export class MainPopup extends React.Component {
 
                 <form id="mainForm">
                     <div className="panel-session-name">
-                        <input id="sessionNameInput" list="sessions" type="text" placeholder="..." autoFocus />
-                        <datalist id="sessions"></datalist>
+                        <ExpandedSessionListInput />
                     </div>
                     <div className="panel-actions">
                         <button type="submit" id="saveButton">
