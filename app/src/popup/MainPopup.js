@@ -18,9 +18,7 @@ export class MainPopup extends React.Component {
                 <div className="panel-plugin-name">
                     <a href="https://github.com/BartoszKlonowski/session-storage">{this.state.extensionName}</a>
                 </div>
-                <div className="panel-session-name">
-                    <ExpandedSessionListInput />
-                </div>
+                <ExpandedSessionListInput />
                 <div className="panel-actions">
                     <ActionButton name="saveButton" text="SAVE" icon="glyphicon glyphicon-floppy-disk" />
                     <ActionButton name="deleteButton" text="DELETE" icon="glyphicon glyphicon-trash" />
