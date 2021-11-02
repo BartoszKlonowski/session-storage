@@ -2,6 +2,7 @@ import * as logic from "./MainPopupLogic";
 import * as React from "react";
 import ReactDOM from "react-dom";
 import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
+import ActionButton from "./components/ActionButton";
 
 export class MainPopup extends React.Component {
     constructor(props) {
@@ -23,15 +24,9 @@ export class MainPopup extends React.Component {
                         <ExpandedSessionListInput />
                     </div>
                     <div className="panel-actions">
-                        <button type="submit" id="saveButton">
-                            <i className="glyphicon glyphicon-floppy-disk"></i>
-                        </button>
-                        <button type="submit" id="deleteButton">
-                            <i className="glyphicon glyphicon-trash"></i>
-                        </button>
-                        <button type="submit" id="reopenButton">
-                            <i className="glyphicon glyphicon-refresh"></i>
-                        </button>
+                        <ActionButton name="saveButton" text="SAVE" icon="glyphicon glyphicon-floppy-disk" />
+                        <ActionButton name="deleteButton" text="DELETE" icon="glyphicon glyphicon-trash" />
+                        <ActionButton name="reopenButton" text="REOPEN" icon="glyphicon glyphicon-refresh" />
                     </div>
                 </form>
             </div>
