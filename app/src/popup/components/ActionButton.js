@@ -10,7 +10,7 @@ export class ActionButton extends React.Component {
         return (
             <>
                 <button type="submit" title={this.props.text} id={this.props.name}>
-                    <i className={this.props.icon}></i>
+                    <i id={this.props.name} className={this.props.icon}></i>
                 </button>
             </>
         );

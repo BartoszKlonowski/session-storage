@@ -14,22 +14,19 @@ export class MainPopup extends React.Component {
 
     render() {
         return (
-            <div id="popup-content">
+            <form id="mainForm">
                 <div className="panel-plugin-name">
                     <a href="https://github.com/BartoszKlonowski/session-storage">{this.state.extensionName}</a>
                 </div>
-
-                <form id="mainForm">
-                    <div className="panel-session-name">
-                        <ExpandedSessionListInput />
-                    </div>
-                    <div className="panel-actions">
-                        <ActionButton name="saveButton" text="SAVE" icon="glyphicon glyphicon-floppy-disk" />
-                        <ActionButton name="deleteButton" text="DELETE" icon="glyphicon glyphicon-trash" />
-                        <ActionButton name="reopenButton" text="REOPEN" icon="glyphicon glyphicon-refresh" />
-                    </div>
-                </form>
-            </div>
+                <div className="panel-session-name">
+                    <ExpandedSessionListInput />
+                </div>
+                <div className="panel-actions">
+                    <ActionButton name="saveButton" text="SAVE" icon="glyphicon glyphicon-floppy-disk" />
+                    <ActionButton name="deleteButton" text="DELETE" icon="glyphicon glyphicon-trash" />
+                    <ActionButton name="reopenButton" text="REOPEN" icon="glyphicon glyphicon-refresh" />
+                </div>
+            </form>
         );
     }
 }
