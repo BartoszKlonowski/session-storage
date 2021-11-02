@@ -7,7 +7,7 @@ html, body {
   }
 
   .panel-session-name {
-    height: 45%;
+    height: 50;
     display: flex;
     justify-content: center;
   }
@@ -25,18 +25,32 @@ html, body {
   }
 
   .panel-actions {
-    display: flex;
-    height: 45%;
+    display: grid;
+    grid-area: button;
+    grid-gap: 10px;
+    flex-direction: row;
     justify-content: space-around;
   }
 
-  .session-name-input {
-    width: 90%;
-    margin: 10px;
-    border-color: grey;
+  form {
+    background-color: #f2f2f2;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas:
+      'header header header'
+      'input input button'
+      'blank blank button';
   }
 
-  input[type=text] {
+  .panel-session-name {
+    grid-area: input;
+  }
+
+  .panel-plugin-name {
+    grid-area: header;
+  }
+
+  .session-name-input {
     width: 90%;
     margin: 10px;
     border-top-width: 0px;
@@ -58,8 +72,8 @@ html, body {
 
   button {
     border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+    height: 40px;
+    padding: 5px;
     cursor: pointer;
     background-image: radial-gradient( white, lightblue);
     border: 1px solid transparent;
@@ -67,6 +81,6 @@ html, body {
   }
 
   button:hover {
-    border-radius: 50px;
+    border-radius: 30px;
     border: 1px solid blue;
   }

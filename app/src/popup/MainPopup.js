@@ -1,6 +1,9 @@
 import * as logic from "./MainPopupLogic";
 import * as React from "react";
 import ReactDOM from "react-dom";
+import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
+import ActionButton from "./components/ActionButton";
+import Logo from "./components/Logo";
 
 export class MainPopup extends React.Component {
     constructor(props) {
@@ -12,29 +15,15 @@ export class MainPopup extends React.Component {
 
     render() {
         return (
-            <div id="popup-content">
-                <div className="panel-plugin-name">
-                    <a href="https://github.com/BartoszKlonowski/session-storage">{this.state.extensionName}</a>
+            <form id="mainForm">
+                <Logo extensionName="Session Storage" />
+                <ExpandedSessionListInput />
+                <div className="panel-actions">
+                    <ActionButton name="saveButton" text="SAVE" icon="glyphicon glyphicon-floppy-disk" />
+                    <ActionButton name="deleteButton" text="DELETE" icon="glyphicon glyphicon-trash" />
+                    <ActionButton name="reopenButton" text="REOPEN" icon="glyphicon glyphicon-refresh" />
                 </div>
-
-                <form id="mainForm">
-                    <div className="panel-session-name">
-                        <input id="sessionNameInput" list="sessions" type="text" placeholder="..." autoFocus />
-                        <datalist id="sessions"></datalist>
-                    </div>
-                    <div className="panel-actions">
-                        <button type="submit" id="saveButton">
-                            <i className="glyphicon glyphicon-floppy-disk"></i>
-                        </button>
-                        <button type="submit" id="deleteButton">
-                            <i className="glyphicon glyphicon-trash"></i>
-                        </button>
-                        <button type="submit" id="reopenButton">
-                            <i className="glyphicon glyphicon-refresh"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            </form>
         );
     }
 }

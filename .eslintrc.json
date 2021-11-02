@@ -14,7 +14,8 @@
             {
                 "endOfLine": "auto"
             }
-        ]
+        ],
+        "react/prop-types": 0
     },
     "plugins": [
         "prettier"
