@@ -6,7 +6,11 @@ export class Logo extends React.Component {
     }
 
     render() {
-        return <></>;
+        return (
+            <div className="panel-plugin-name">
+                <a href="https://github.com/BartoszKlonowski/session-storage">{this.props.extensionName}</a>
+            </div>
+        );
     }
 }
 
