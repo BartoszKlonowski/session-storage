@@ -8,12 +8,11 @@ html, body {
 
   .panel-session-name {
     height: 50;
-    display: flex;
     justify-content: center;
   }
 
   .panel-plugin-name {
-    height: 10%;
+    height: 5%;
   }
 
   a {
@@ -28,6 +27,7 @@ html, body {
     display: grid;
     grid-area: button;
     grid-gap: 10px;
+    margin: 10px;
     flex-direction: row;
     justify-content: space-around;
   }
@@ -35,7 +35,7 @@ html, body {
   form {
     background-color: #f2f2f2;
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 10px;
     grid-template-areas:
       'header header header'
       'input input button'
@@ -51,12 +51,12 @@ html, body {
   }
 
   .session-name-input {
-    width: 90%;
+    width: 100%;
     margin: 10px;
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
-    border-bottom-width: 1px;
+    border-bottom-width: 3px;
     border-color: lightblue;
   }
 
