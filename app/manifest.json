@@ -19,7 +19,7 @@
   },
 
   "icons": {
-    "830": "icons/SessionStorageIcon.png"
+    "600": "icons/SessionStorageIcon.png"
   },
 
   "description": "Let's user keep his sessions for future restoration",
