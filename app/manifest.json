@@ -5,13 +5,9 @@
 
   "permissions": [
     "activeTab",
-    "sessions",
     "tabs",
     "unlimitedStorage",
-		"contextMenus",
-		"storage",
-		"notifications",
-		"search"
+		"storage"
   ],
 
   "background": {
