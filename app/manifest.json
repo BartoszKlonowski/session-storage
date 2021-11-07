@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "SessionStorage",
+  "name": "Session Storage",
   "version": "1.0.0",
 
   "permissions": [
@@ -26,7 +26,7 @@
 
   "browser_action": {
     "default_icon": "icons/SessionStorageIcon.png",
-    "default_title": "SessionStorage",
+    "default_title": "Session Storage",
     "default_popup": "src/popup/MainPopup.html"
   }
 }
