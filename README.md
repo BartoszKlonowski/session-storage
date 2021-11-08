@@ -42,13 +42,6 @@ Popup that appears allows to do four actions:
 ---
 
 
-## Documentation ##
-
-This plugin is easy to use and most user-friendly, but to improve the user-experience even more everything you need to know about this tool can be found in the [Wiki](https://github.com/BartoszKlonowski/session-storage/wiki).
-<br/>Feel free to open an [issue](https://github.com/BartoszKlonowski/session-storage/issues) if there's anything unclear.
-
----
-
 ## Contributing ##
 
 If you would like to contribute to the *SessionStorage* project, you are more than welcome!
