@@ -50,10 +50,22 @@ If you would like to contribute to the *SessionStorage* project, you are more th
 
 * Create an [Issue](https://github.com/BartoszKlonowski/session-storage/issues/new) and let the author handle it
 <br/>Each issue created in the [Issues](https://github.com/BartoszKlonowski/session-storage/issues) section gives a chance of improving the project and make it even more useful.
-* Create the [Pull Request](https://github.com/BartoszKlonowski/session-storage/compare) with the desired changes
+* Create the [Pull Request](https://github.com/BartoszKlonowski/session-storage/compare) with the desired changes (please see further for how to develop this extension).
 <br/>After a detailed review it will be merged.
 <br/>Please remember to give the detailed description of why such change is needed, what is the test plan and what are the details of your implementation. This will make the review easier and quicker.
 <br/>Please also remember to check the unit tests and implement additional tests in case of providing the project with some new features/new code.
+
+---
+
+## Development ##
+
+If you plan to implement changes to this extension:
+
+1. Clone your fork of this repository
+2. Run `npm install` in the root of this repository to install all the dependencies and tools<br/>Please make sure to have the `npm` installed first.
+3. Implement your changes and test them:
+<br/>Manually by following [these steps](https://extensionworkshop.com/documentation/develop/debugging/)
+<br/>Or automatically by running `npm run-script test` and `npm run-script build` in the root of your clone
 
 ---
 
