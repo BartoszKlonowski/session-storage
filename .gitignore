@@ -39,6 +39,9 @@ bower_components
 build/Release
 build
 
+# Deployed, official artiffacts
+web-ext-artifacts
+
 # Dependency directories
 node_modules/
 jspm_packages/

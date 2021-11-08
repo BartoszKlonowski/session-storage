@@ -1,17 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "SessionStorage",
-  "version": "0.1.0",
+  "name": "Session Storage",
+  "version": "1.0.0",
 
   "permissions": [
     "activeTab",
-    "sessions",
     "tabs",
     "unlimitedStorage",
-		"contextMenus",
-		"storage",
-		"notifications",
-		"search"
+		"storage"
   ],
 
   "background": {
@@ -26,7 +22,7 @@
 
   "browser_action": {
     "default_icon": "icons/SessionStorageIcon.png",
-    "default_title": "SessionStorage",
+    "default_title": "Session Storage",
     "default_popup": "src/popup/MainPopup.html"
   }
 }
