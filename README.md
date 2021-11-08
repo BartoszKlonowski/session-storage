@@ -15,13 +15,12 @@
 </p>
 
 This project is the Mozilla Firefox extension plugin.
-<br/>It's created to keep all your opened tabs in memory so you won't be afraid to close your browser or to start a new session.
+<br/>It's purpose is to keep all your opened tabs in memory so you won't be afraid to close your browser or to start a new session.
 
 The idea is to have a simple plugin (being available in the upper-right corner) that will allow you to:
-* Save the current session under specific ID or customized key
+* Save the current session (of current window) under specific ID or customized key
 * Reopen selected session in a new browser window
 * Manage your saved sessions by deleting it or modifying
-  
 
 ---
   
