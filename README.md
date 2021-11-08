@@ -10,43 +10,37 @@
         <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Tests&style=plastic" alt="Unit Tests status" />
     </a>
     <a href="https://github.com/BartoszKlonowski/session-storage/actions/workflows/SessionStorage-CI.yml">
-        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Verify%3A%20ESLint&style=plastic" alt="Source: ESLint verification status" />
+        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Extension%20verification&style=plastic" alt="Package verification status" />
     </a>
 </p>
 
 This project is the Mozilla Firefox extension plugin.
-<br/>It's created to keep all your opened tabs in memory so you won't be afraid to close your browser or to start a new session.
+<br/>It's purpose is to keep all your opened tabs in memory so you won't be afraid to close your browser or to start a new session.
 
 The idea is to have a simple plugin (being available in the upper-right corner) that will allow you to:
-* Save the current session under specific ID or customized key
+* Save the current session (of current window) under specific ID or customized key
 * Reopen selected session in a new browser window
 * Manage your saved sessions by deleting it or modifying
-  
 
 ---
   
 ## Installation & Usage ##
 
-You can use this extension by:
+This extension can be installed by:
+* installing it via the Mozilla add-ons market by clicking the button bellow:<br/> <a href="https://github.https://addons.mozilla.org/pl/firefox/addon/session-storage/"><img src="./.github/resources/get-the-addon.png" alt="" /></a>
 * downloading it directly from the [Releases page](https://github.com/BartoszKlonowski/session-storage/releases) and install it manually in your browser
-> Official package will appear in the browser add-ons market only after v1.0.0 release.
-> Please stay tuned!
->* installing it via the Mozilla add-ons market under the [following link](https://addons.mozilla.org/pl/firefox/addon/SessionStorage/) to the officialy published package
 
 After successful installation you will see the extension icon in the upper-right corner of your browser.
-Click it for the popup to appear and use it just like presented below:
-
-![Usage presentation GIF](.github/resources/Plugin-presentation1.gif)
-
----
-
-
-## Documentation ##
-
-This plugin is easy to use and most user-friendly, but to improve the user-experience even more everything you need to know about this tool can be found in the [Wiki](https://github.com/BartoszKlonowski/session-storage/wiki).
-<br/>Feel free to open an [issue](https://github.com/BartoszKlonowski/session-storage/issues) if there's anything unclear.
+Popup that appears allows to do four actions:
+| | | |
+|:-:|:-|:-:|
+| **Save** | Saves all tabs of the current window under the name specified in the input on the left.<br/>The name itself is also saved in memory, so that it's easier to select it later. | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Save.gif" alt="" /> |
+| **Edit** | Edits the selected session (the one which name was selected/entered in the text field input). The edit action is available under the *SAVE* button.<br/>Note that this action completely overwrites the selected session with all the tabs currently opened in current window.<br/>**NOTE**: This action can't be reverted - each session is saved without it's change revisions/history. | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Edit.gif" alt="" /> |
+| **Delete** | Removes the session which name was entered/selected in the text field input. Name of deleted session will also be removed so only the existing sessions will be availble to be selected.<br/>**NOTE**: If name of a non-existing session will be entered to be deleted this action takes no effect. | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Delete.gif" alt="" /> |
+| **Reopen** | Opens all tabs previously saved under the selected/entered session's name.<br/>All tabs of reopened session are created in the **current** window, so the advice is to reopen a session in a new window to avoid mixing various sessions | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Reopen.gif" alt="" /> |
 
 ---
+
 
 ## Contributing ##
 
@@ -56,10 +50,22 @@ If you would like to contribute to the *SessionStorage* project, you are more th
 
 * Create an [Issue](https://github.com/BartoszKlonowski/session-storage/issues/new) and let the author handle it
 <br/>Each issue created in the [Issues](https://github.com/BartoszKlonowski/session-storage/issues) section gives a chance of improving the project and make it even more useful.
-* Create the [Pull Request](https://github.com/BartoszKlonowski/session-storage/compare) with the desired changes
+* Create the [Pull Request](https://github.com/BartoszKlonowski/session-storage/compare) with the desired changes (please see further for how to develop this extension).
 <br/>After a detailed review it will be merged.
 <br/>Please remember to give the detailed description of why such change is needed, what is the test plan and what are the details of your implementation. This will make the review easier and quicker.
 <br/>Please also remember to check the unit tests and implement additional tests in case of providing the project with some new features/new code.
+
+---
+
+## Development ##
+
+If you plan to implement changes to this extension:
+
+1. Clone your fork of this repository
+2. Run `npm install` in the root of this repository to install all the dependencies and tools<br/>Please make sure to have the `npm` installed first.
+3. Implement your changes and test them:
+<br/>Manually by following [these steps](https://extensionworkshop.com/documentation/develop/debugging/)
+<br/>Or automatically by running `npm run-script test` and `npm run-script build` in the root of your clone
 
 ---
 
