@@ -27,20 +27,17 @@ The idea is to have a simple plugin (being available in the upper-right corner) 
 ## Installation & Usage ##
 
 This extension can be installed by:
-* installing it via the Mozilla add-ons market by clicking the button bellow:<br/>
-<a href="https://github.https://addons.mozilla.org/pl/firefox/addon/session-storage/">
-    <img src="./.github/resources/get-the-addon.png" alt="" />
-</a>
+* installing it via the Mozilla add-ons market by clicking the button bellow:<br/> <a href="https://github.https://addons.mozilla.org/pl/firefox/addon/session-storage/"><img src="./.github/resources/get-the-addon.png" alt="" /></a>
 * downloading it directly from the [Releases page](https://github.com/BartoszKlonowski/session-storage/releases) and install it manually in your browser
 
 After successful installation you will see the extension icon in the upper-right corner of your browser.
 Popup that appears allows to do four actions:
 | | | |
 |:-:|:-|:-:|
-| **Save** | Saves all tabs of the current window under the name specified in the input on the left.<br/>The name itself is also saved in memory, so that it's easier to select it later. | ![](.github/resources/Examples/SessionStorage-Example-Save.gif) |
-| **Edit** | Edits the selected session (the one which name was selected/entered in the text field input). The edit action is available under the *SAVE* button.<br/>Note that this action completely overwrites the selected session with all the tabs currently opened in current window.<br/>**NOTE**: This action can't be reverted - each session is saved without it's change revisions/history. | ![](.github/resources/Examples/SessionStorage-Example-Edit.gif) |
-| **Delete** | Removes the session which name was entered/selected in the text field input. Name of deleted session will also be removed so only the existing sessions will be availble to be selected.<br/>**NOTE**: If name of a non-existing session will be entered to be deleted this action takes no effect. | ![](.github/resources/Examples/SessionStorage-Example-Delete.gif) |
-| **Reopen** | Opens all tabs previously saved under the selected/entered session's name.<br/>All tabs of reopened session are created in the **current** window, so the advice is to reopen a session in a new window to avoid mixing various sessions | ![](.github/resources/Examples/SessionStorage-Example-Reopen.gif) |
+| **Save** | Saves all tabs of the current window under the name specified in the input on the left.<br/>The name itself is also saved in memory, so that it's easier to select it later. | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Save.gif" alt="" /> |
+| **Edit** | Edits the selected session (the one which name was selected/entered in the text field input). The edit action is available under the *SAVE* button.<br/>Note that this action completely overwrites the selected session with all the tabs currently opened in current window.<br/>**NOTE**: This action can't be reverted - each session is saved without it's change revisions/history. | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Edit.gif" alt="" /> |
+| **Delete** | Removes the session which name was entered/selected in the text field input. Name of deleted session will also be removed so only the existing sessions will be availble to be selected.<br/>**NOTE**: If name of a non-existing session will be entered to be deleted this action takes no effect. | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Delete.gif" alt="" /> |
+| **Reopen** | Opens all tabs previously saved under the selected/entered session's name.<br/>All tabs of reopened session are created in the **current** window, so the advice is to reopen a session in a new window to avoid mixing various sessions | <img width="600" height="auto" src=".github/resources/Examples/SessionStorage-Example-Reopen.gif" alt="" /> |
 
 ---
 
