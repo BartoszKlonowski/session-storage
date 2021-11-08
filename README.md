@@ -10,7 +10,7 @@
         <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Tests&style=plastic" alt="Unit Tests status" />
     </a>
     <a href="https://github.com/BartoszKlonowski/session-storage/actions/workflows/SessionStorage-CI.yml">
-        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Verify%3A%20ESLint&style=plastic" alt="Source: ESLint verification status" />
+        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Extension%20verification&style=plastic" alt="Package verification status" />
     </a>
 </p>
 
