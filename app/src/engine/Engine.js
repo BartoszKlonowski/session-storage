@@ -21,10 +21,21 @@ class Engine {
 
     reopenSession(name) {
         const tabsArray = this.db.loadSession(name);
-        for (let tab of tabsArray) {
-            console.log("item in tabsArray: ", tab);
-            browser.tabs.create(tab);
-        }
+        const defaultWindowId = browser.windows.WINDOW_ID_CURRENT;
+        browser.windows
+            .getCurrent()
+            .then((thisWindow) => {
+                this.assignTabsToCurrentWindow(tabsArray, thisWindow.windowId, defaultWindowId);
+            })
+            .catch((error) => {
+                console.error("Could not fetch the current Window ID - assigning to default", error.message);
+                this.assignTabsToCurrentWindow(tabsArray, defaultWindowId, defaultWindowId);
+            })
+            .finally(() => {
+                for (let tab of tabsArray) {
+                    browser.tabs.create(tab);
+                }
+            });
     }
 
     isSessionNameCorrect(name) {
@@ -49,6 +60,12 @@ class Engine {
             url: mdnTabObject.url,
         };
         return dbTab;
+    }
+
+    assignTabsToCurrentWindow(tabs, currentWindowId, defaultWindowId) {
+        for (let tab of tabs) {
+            tab.windowId = currentWindowId && currentWindowId > 0 ? currentWindowId : defaultWindowId;
+        }
     }
 }
 

@@ -68,3 +68,83 @@ test("MDN tabs.Tab object is converted successfully to Database Tab internal obj
     expect(Object.prototype.hasOwnProperty.call(dbTab, "url")).toBe(true);
     expect(Object.prototype.hasOwnProperty.call(dbTab, "windowId")).toBe(true);
 });
+
+test("All tabs should have window ID replaced with current and correct one", () => {
+    const engine = new Engine({});
+    let tabs = [
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 1,
+        },
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 3,
+        },
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 15,
+        },
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 8,
+        },
+    ];
+
+    const correctWindowId = 1;
+    engine.assignTabsToCurrentWindow(tabs, correctWindowId);
+    for (let tab of tabs) {
+        expect(tab.windowId).toBe(correctWindowId);
+    }
+});
+
+test("All tabs should have window ID replaced with default current window ID for incorrect window ID", () => {
+    const engine = new Engine({});
+    let tabs = [
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 1,
+        },
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 3,
+        },
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 15,
+        },
+        {
+            active: true,
+            index: 6,
+            pinned: false,
+            url: "about:debugging#/runtime/this-firefox",
+            windowId: 8,
+        },
+    ];
+
+    const WINDOW_ID_CURRENT = -2;
+    engine.assignTabsToCurrentWindow(tabs, "incorrect window's ID", WINDOW_ID_CURRENT);
+    for (let tab of tabs) {
+        expect(tab.windowId).toBe(WINDOW_ID_CURRENT);
+    }
+});
