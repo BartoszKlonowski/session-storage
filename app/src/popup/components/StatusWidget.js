@@ -7,8 +7,8 @@ export class StatusWidget extends React.Component {
 
     render() {
         return(
-            <>
-            </>
+            <div className={"status-widget"}>
+            </div>
         );
     }
 }

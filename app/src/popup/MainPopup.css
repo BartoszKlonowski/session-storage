@@ -50,6 +50,10 @@ html, body {
     grid-area: header;
   }
 
+  .status-widget {
+    margin: 10px;
+  }
+
   .session-name-input {
     width: 100%;
     margin: 10px;
