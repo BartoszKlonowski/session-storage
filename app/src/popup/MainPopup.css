@@ -51,7 +51,12 @@ html, body {
   }
 
   .status-widget {
-    margin: 10px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: lightcoral;
   }
 
   .session-name-input {
