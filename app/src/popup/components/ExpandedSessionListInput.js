@@ -21,7 +21,7 @@ export class ExpandedSessionListInput extends React.Component {
         }
         return (
             <div className="panel-session-name">
-                <input list="allSessions" type="text" className="session-name-input" placeholder="..." />
+                <input list="allSessions" type="text" className="session-name-input" onSubmit="return false;" placeholder="..." />
                 <datalist id="allSessions">{options}</datalist>
             </div>
         );
