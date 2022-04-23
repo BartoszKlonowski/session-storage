@@ -50,7 +50,25 @@ html, body {
     grid-area: header;
   }
 
-  .status-widget {
+  .status-widget-appear {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: lightcoral;
+  }
+
+  .status-widget-appear-active {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: lightcoral;
+  }
+
+  .status-widget-exit {
     margin-bottom: 0px;
     margin-left: 10px;
     border-radius: 20px;
