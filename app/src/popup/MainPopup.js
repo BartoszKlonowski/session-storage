@@ -11,7 +11,25 @@ export class MainPopup extends React.Component {
         super(props);
         this.state = {
             extensionName: "Session Storage",
+            status: "none",
         };
+    }
+
+    componentDidMount() {
+        document.addEventListener("click", (event) => {
+            event.preventDefault();
+            const session = logic.getSessionNameFromInput(document);
+            browser.tabs
+                .query({active: true, currentWindow: true})
+                .then((tabs) => {
+                    logic.handleEventForGivenTab(browser, tabs, event, session);
+                    this.setState({status: "success"});
+                })
+                .catch((error) => {
+                    logic.reportError(error);
+                    this.setState({status: "error"});
+                });
+        });
     }
 
     render() {
@@ -24,11 +42,10 @@ export class MainPopup extends React.Component {
                     <ActionButton name="deleteButton" text="DELETE" icon="glyphicon glyphicon-trash" />
                     <ActionButton name="reopenButton" text="REOPEN" icon="glyphicon glyphicon-refresh" />
                 </div>
-                <StatusWidget/>
+                <StatusWidget status={this.state.status}/>
             </form>
         );
     }
 }
 
-logic.listenForClicks(document, browser);
 ReactDOM.render(<MainPopup />, document.getElementById("root"));

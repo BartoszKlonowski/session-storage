@@ -31,16 +31,6 @@ export function getSessionNameFromInput(document) {
     return sessionName;
 }
 
-export function listenForClicks(document, browser) {
-    document.addEventListener("click", (event) => {
-        const session = getSessionNameFromInput(document);
-        browser.tabs
-            .query({active: true, currentWindow: true})
-            .then((tabs) => handleEventForGivenTab(browser, tabs, event, session))
-            .catch((error) => reportError(error));
-    });
-}
-
 export function reportExecuteScriptError(document, error) {
     document.querySelector("#popup-content").classList.add("hidden");
     document.querySelector("#error-content").classList.remove("hidden");
