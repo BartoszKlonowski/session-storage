@@ -23,11 +23,7 @@ export class Button extends React.Component {
     }
 
     render() {
-        if (this.props.buttonType) {
-            return this.renderVariantButton();
-        } else {
-            return this.renderDefaultButton();
-        }
+        return this.props.buttonType ? this.renderVariantButton() : this.renderDefaultButton();
     }
 }
 
