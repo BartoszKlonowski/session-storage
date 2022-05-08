@@ -71,7 +71,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: ./build
-          key: ${{ hashFiles('./app/manifest.json') }}
+          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./app/manifest.json') }}
 
       - name: Verify the package
         run: npx web-ext --source-dir "./build" lint
@@ -105,7 +105,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: ./build
-          key: ${{ hashFiles('./app/manifest.json') }}
+          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./app/manifest.json') }}
 
 
   build:
