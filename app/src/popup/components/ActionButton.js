@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./reusable/Button";
 
 export class ActionButton extends React.Component {
     constructor(props) {
@@ -8,9 +9,10 @@ export class ActionButton extends React.Component {
 
     render() {
         return (
-            <button type="submit" title={this.props.text} id={this.props.name}>
-                <i id={this.props.name} className={this.props.icon}></i> {this.props.text}
-            </button>
+            <Button text={this.props.text} name={this.props.name}>
+                <i id={this.props.name} className={this.props.icon}></i>
+                {this.props.text}
+            </Button>
         );
     }
 }
