@@ -49,28 +49,6 @@ jobs:
         run: npx eslint .
 
 
-  test:
-    name: Run the unit tests
-    runs-on: windows-latest
-    needs: [verify]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-
-      - name: Pull the npm dependencies
-        uses: actions/cache@v2.1.6
-        with:
-          path: ./node_modules
-          key: ${{ hashFiles('./package.json') }}
-
-      - name: Run unit tests
-        run: npx jest
-
-
   pre-build-package-verify:
     name: Verify the package before build
     runs-on: windows-latest
