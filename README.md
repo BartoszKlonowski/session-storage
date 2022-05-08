@@ -6,8 +6,8 @@
     <a href="https://github.com/BartoszKlonowski/ExtendedVector/blob/main/LICENSE">
         <img src="https://img.shields.io/github/license/BartoszKlonowski/session-storage?style=plastic" alt="SessionStorage is released under the GNU GPL v3 license." />
     </a>
-    <a href="https://github.com/BartoszKlonowski/session-storage/actions/workflows/session-storage-CI.yml">
-        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Tests&style=plastic" alt="Unit Tests status" />
+    <a href="https://github.com/BartoszKlonowski/session-storage/actions/workflows/SessionStorage-UT.yml">
+        <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-UT?label=Tests&style=plastic" alt="Unit Tests status" />
     </a>
     <a href="https://github.com/BartoszKlonowski/session-storage/actions/workflows/SessionStorage-CI.yml">
         <img src="https://img.shields.io/github/workflow/status/BartoszKlonowski/session-storage/SessionStorage-CI?label=Extension%20verification&style=plastic" alt="Package verification status" />
