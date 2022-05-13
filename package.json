@@ -5,6 +5,8 @@
   "main": "manifest.json",
   "scripts": {
     "test": "jest",
+    "package-verify": "eslint . && npm run deploy && web-ext --source-dir ./build lint",
+    "ci": "npm run test && npm run package-verify",
     "build": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode development",
     "deploy": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode production"
   },
@@ -43,7 +45,7 @@
     "react-dom": "^17.0.2",
     "web-ext": "^6.5.0",
     "webpack": "^5.42.0",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.9.2"
   },
   "jest": {
     "verbose": true,
