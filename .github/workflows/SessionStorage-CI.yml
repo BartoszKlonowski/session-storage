@@ -131,7 +131,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: ./build
-          key: ${{ hashFiles('./app/manifest.json') }}
+          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./app/manifest.json') }}
 
       - name: Build the release package
         run: npx web-ext build --source-dir "./build"
