@@ -3,7 +3,11 @@
         "browser": true,
         "es2021": true
     },
-    "extends": ["eslint:recommended","plugin:react/recommended"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
     "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaVersion": 12,
@@ -19,12 +23,22 @@
         "react/prop-types": 0
     },
     "plugins": [
-        "prettier"
+        "prettier",
+        "jsx-a11y"
     ],
     "globals": {
         "browser": "writable",
         "window": "readonly",
         "test": "writable",
         "expect": "writable"
-    }
+    },
+    "settings": {
+        "jsx-a11y": {
+          "components": {
+            "Logo": "link",
+            "ActionButton": "button",
+            "Button": "button"
+          }
+        }
+      }
 }
