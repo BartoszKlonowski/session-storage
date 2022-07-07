@@ -22,6 +22,7 @@ export class ExpandedSessionListInput extends React.Component {
         return (
             <div className="panel-session-name">
                 <input
+                    title="Name of session"
                     list="allSessions"
                     aria-label={"session-name-input-field"}
                     aria-required="true"
