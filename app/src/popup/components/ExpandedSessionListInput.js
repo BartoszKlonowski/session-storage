@@ -23,6 +23,8 @@ export class ExpandedSessionListInput extends React.Component {
             <div className="panel-session-name">
                 <input
                     list="allSessions"
+                    aria-label={"session-name-input-field"}
+                    aria-required="true"
                     type="text"
                     className="session-name-input"
                     onClick={() => this.setState({sessions: this.state.storage.loadSessions()})}
