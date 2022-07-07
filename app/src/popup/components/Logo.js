@@ -8,7 +8,9 @@ export class Logo extends React.Component {
     render() {
         return (
             <div className="panel-plugin-name">
-                <a href="https://github.com/BartoszKlonowski/session-storage">{this.props.extensionName}</a>
+                <a href="https://github.com/BartoszKlonowski/session-storage" title="Click to visit GH Page">
+                    {this.props.extensionName}
+                </a>
             </div>
         );
     }
