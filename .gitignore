@@ -37,7 +37,8 @@ bower_components
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-build
+build/v2/app/src
+build/v3/app/src
 
 # Deployed, official artiffacts
 web-ext-artifacts

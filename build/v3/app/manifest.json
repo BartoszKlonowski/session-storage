@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Session Storage",
+  "version": "1.0.2",
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "unlimitedStorage",
+		"storage"
+  ],
+
+  "background": {
+    "service_worker": "src/engine/Background.js"
+  },
+
+  "icons": {
+    "600": "icons/SessionStorageIcon.png"
+  },
+
+  "description": "Let's user keep his sessions for future restoration",
+
+  "action": {
+    "default_icon": "icons/SessionStorageIcon.png",
+    "default_title": "Session Storage",
+    "default_popup": "src/popup/MainPopup.html"
+  }
+}
