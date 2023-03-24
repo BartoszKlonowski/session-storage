@@ -11,7 +11,10 @@
   ],
 
   "background": {
-    "scripts": ["src/engine/Background.js"]
+    "scripts": [
+      "browser-polyfill.js",
+      "src/engine/Background.js"
+    ]
   },
 
   "icons": {
