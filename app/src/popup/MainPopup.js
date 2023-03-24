@@ -5,6 +5,10 @@ import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
 import ActionButton from "./components/ActionButton";
 import Logo from "./components/Logo";
 
+if (!browser) {
+    var browser = require("webextension-polyfill");
+}
+
 export class MainPopup extends React.Component {
     constructor(props) {
         super(props);

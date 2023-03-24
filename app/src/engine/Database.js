@@ -1,3 +1,7 @@
+if (!browser) {
+    var browser = require("webextension-polyfill");
+}
+
 class Database {
     constructor() {
         this.instance = {};
