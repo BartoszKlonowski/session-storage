@@ -7,8 +7,10 @@
     "test": "jest",
     "package-verify": "eslint . && npm run deploy && web-ext --source-dir ./build lint",
     "ci": "npm run test && npm run package-verify",
-    "build": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode development",
-    "deploy": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode production"
+    "build-v2": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --config ./build/v2/webpack.config.js --mode development",
+    "deploy-v2": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --config ./build/v2/webpack.config.js --mode production",
+    "build-v3": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --config ./build/v3/webpack.config.js --mode development",
+    "deploy-v3": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --config ./build/v3/webpack.config.js --mode production"
   },
   "repository": {
     "type": "git",
