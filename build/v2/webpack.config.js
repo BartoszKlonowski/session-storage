@@ -7,6 +7,6 @@ module.exports = {
     },
     output: {
         filename: "[name].js",
-        path: path.resolve(__dirname, "build/v2/app"),
+        path: path.resolve(__dirname, "app"),
     },
 };
