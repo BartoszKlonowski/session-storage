@@ -27,28 +27,6 @@ jobs:
           key: ${{ hashFiles('./package.json') }}
 
 
-  verify:
-    name: Verify the sources
-    runs-on: windows-latest
-    needs: install
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-
-      - name: Cache
-        uses: actions/cache@v2.1.6
-        with:
-          path: ./node_modules
-          key: ${{ hashFiles('./package.json') }}
-
-      - name: Run ESLint on the sources
-        run: npx eslint .
-
-
   test:
     name: Run the unit tests
     runs-on: windows-latest

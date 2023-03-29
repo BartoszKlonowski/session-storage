@@ -53,6 +53,12 @@
   },
   "jest": {
     "verbose": true,
+    "moduleNameMapper": {
+      ".\\Database": "<rootDir>/platforms/mozilla/app/src/engine/Database.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/__tests__/setupTest.js"
+    ],
     "testEnvironment": "jsdom"
   }
 }

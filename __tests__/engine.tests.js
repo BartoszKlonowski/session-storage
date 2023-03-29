@@ -1,3 +1,4 @@
+jest.mock("webextension-polyfill");
 import Engine from "../app/src/engine/Engine";
 
 test("Engine returns true if session name is correct", () => {

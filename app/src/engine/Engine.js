@@ -1,6 +1,6 @@
 import Database from "./Database";
 
-if (!browser) {
+if (!global.browser) {
     var browser = require("webextension-polyfill");
 }
 
