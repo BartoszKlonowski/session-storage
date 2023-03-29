@@ -4,14 +4,17 @@ if (!browser) {
 
 class Database {
     constructor() {
-        this.storage = browser.storage.local;
+        browser.storage.local = browser.storage.local;
     }
 
     saveSession(name, tabs) {
+        console.log("Database.saveSession.tabs: ", tabs);
         if (this.isSessionCorrect(name, tabs) === true) {
             try {
-                this.storage.set(JSON.parse(`{"${name}":${JSON.stringify(tabs)}}`));
-                this.loadSessions().then(allSessions => {
+                browser.storage.local.set(JSON.parse(`{"${name}":${JSON.stringify(tabs)}}`)).catch(error => {
+                    console.log("browser.storage.local.set.error: ", error);
+                });
+                this.loadSessions(allSessions => {
                     allSessions = this.addNewSessionNameToStorage(name, allSessions);
                     this.saveSessions(allSessions);
                 });
@@ -23,7 +26,7 @@ class Database {
 
     deleteSession(name) {
         try {
-            this.storage.remove(name);
+            browser.storage.local.remove(name);
             this.loadSessions((sessions) => {
                 const updatedSessions = this.removeSessionNameFromStorage(name, sessions);
                 this.saveSessions(updatedSessions);
@@ -35,9 +38,9 @@ class Database {
 
     loadSession(name, onComplete) {
         try {
-            this.storage.get(name).then(session => {
+            browser.storage.local.get(name).then(session => {
                 console.log("loadSession.session: ", session);
-                onComplete(JSON.parse(session));
+                onComplete(session[name]);
             }).catch();
         } catch (exception) {
             console.log("ERROR: Could not read from database: ", exception);
@@ -46,12 +49,10 @@ class Database {
     }
 
     loadSessions(onComplete) {
-        this.storage.get("sessions").then(sessions => {
-            if(sessions?.length) {
-                console.log("loadSessions.success.sessions: ", JSON.stringify(sessions));
-                onComplete(sessions);
+        browser.storage.local.get("sessions").then(sessions => {
+            if(sessions?.sessions?.length) {
+                onComplete(sessions.sessions);
             } else {
-                console.log("loadSessions.error.sessions: ", JSON.stringify(sessions));
                 onComplete([]);
             }
         }).catch(error => {
@@ -61,7 +62,7 @@ class Database {
     }
 
     saveSessions(allSessionsArray) {
-        this.storage.set({sessions: allSessionsArray}).catch(error => {
+        browser.storage.local.set({sessions: allSessionsArray}).catch(error => {
             console.warn("Database.v3.saveSessions.error: ", error);
         });
     }
