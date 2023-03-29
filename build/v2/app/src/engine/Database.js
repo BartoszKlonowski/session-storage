@@ -7,9 +7,10 @@ class Database {
       if (this.isSessionCorrect(name, tabs) === true) {
           try {
               this.storage.setItem(name, `${JSON.stringify(tabs)}`);
-              let allSessions = this.loadSessions();
-              allSessions = this.addNewSessionNameToStorage(name, allSessions);
-              this.saveSessions(allSessions);
+              this.loadSessions((allSessions) => {
+                allSessions = this.addNewSessionNameToStorage(name, allSessions);
+                this.saveSessions(allSessions);
+              });
           } catch (exception) {
               console.log(`ERROR: `, exception);
           }
@@ -19,28 +20,29 @@ class Database {
   deleteSession(name) {
       try {
           this.storage.removeItem(name);
-          let allSessions = this.loadSessions();
-          allSessions = this.removeSessionNameFromStorage(name, allSessions);
-          this.saveSessions(allSessions);
+          this.loadSessions(allSessions => {
+            allSessions = this.removeSessionNameFromStorage(name, allSessions);
+            this.saveSessions(allSessions);
+          });
       } catch (exception) {
           console.log("ERROR: Could not remove the item. ", exception);
       }
   }
 
-  loadSession(name) {
+  loadSession(name, onComplete) {
       try {
           const sessionData = this.storage.getItem(name);
-          return JSON.parse(sessionData);
+          onComplete(JSON.parse(sessionData));
       } catch (exception) {
           console.log("ERROR: Could not read from database: ", exception);
           return {};
       }
   }
 
-  loadSessions() {
+  loadSessions(onComplete) {
       const sessionsArray = this.storage.getItem("sessions");
       if (sessionsArray) {
-          return JSON.parse(sessionsArray);
+          onComplete(JSON.parse(sessionsArray));
       } else {
           return [];
       }
