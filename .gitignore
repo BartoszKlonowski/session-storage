@@ -38,21 +38,21 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
-build/v2/app/*
-!build/v2/app/src/
-build/v2/app/src/*
-!build/v2/app/src/engine/
-build/v2/app/src/engine/*
-!build/v2/app/src/engine/Database.js
-!build/v2/app/manifest.json
+platforms/mozilla/app/*
+!platforms/mozilla/app/src/
+platforms/mozilla/app/src/*
+!platforms/mozilla/app/src/engine/
+platforms/mozilla/app/src/engine/*
+!platforms/mozilla/app/src/engine/Database.js
+!platforms/mozilla/app/manifest.json
 
-build/v3/app/*
-!build/v3/app/src/
-build/v3/app/src/*
-!build/v3/app/src/engine/
-build/v3/app/src/engine/*
-!build/v3/app/src/engine/Database.js
-!build/v3/app/manifest.json
+platforms/chromium/app/*
+!platforms/chromium/app/src/
+platforms/chromium/app/src/*
+!platforms/chromium/app/src/engine/
+platforms/chromium/app/src/engine/*
+!platforms/chromium/app/src/engine/Database.js
+!platforms/chromium/app/manifest.json
 
 # Deployed, official artiffacts
 web-ext-artifacts

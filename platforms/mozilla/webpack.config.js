@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
     entry: {
-        "src/popup/MainPopup": "./build/v2/app/src/popup/MainPopup.js",
-        "src/engine/Background": "./build/v2/app/src/engine/Background.js",
+        "src/popup/MainPopup": "./platforms/mozilla/app/src/popup/MainPopup.js",
+        "src/engine/Background": "./platforms/mozilla/app/src/engine/Background.js",
     },
     output: {
         filename: "[name].js",
