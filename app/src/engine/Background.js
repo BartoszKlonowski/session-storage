@@ -5,7 +5,7 @@ if (!browser) {
 }
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    const engine = new Engine(browser);
+    const engine = new Engine();
     engine
         .pullAllOpenedTabs()
         .then((allTabs) => {
@@ -21,13 +21,14 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     correct = engine.reopenSession(message.session);
                     break;
                 default:
-                    throw {message: `Unrecognized action from ${sender}`};
+                    throw {message: `Unrecognized action from ${JSON.stringify(sender)}`};
             }
             if (correct === true) {
                 sendResponse();
             }
         })
         .catch((error) => {
+            console.log("engine.pullAllOpenTabs.error: ", error);
             throw error;
         });
 });
