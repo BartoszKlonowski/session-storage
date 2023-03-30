@@ -3,18 +3,14 @@ if (!browser) {
 }
 
 class Database {
-    constructor() {
-        browser.storage.local = browser.storage.local;
-    }
-
     saveSession(name, tabs) {
         console.log("Database.saveSession.tabs: ", tabs);
         if (this.isSessionCorrect(name, tabs) === true) {
             try {
-                browser.storage.local.set(JSON.parse(`{"${name}":${JSON.stringify(tabs)}}`)).catch(error => {
+                browser.storage.local.set(JSON.parse(`{"${name}":${JSON.stringify(tabs)}}`)).catch((error) => {
                     console.log("browser.storage.local.set.error: ", error);
                 });
-                this.loadSessions(allSessions => {
+                this.loadSessions((allSessions) => {
                     allSessions = this.addNewSessionNameToStorage(name, allSessions);
                     this.saveSessions(allSessions);
                 });
@@ -38,10 +34,13 @@ class Database {
 
     loadSession(name, onComplete) {
         try {
-            browser.storage.local.get(name).then(session => {
-                console.log("loadSession.session: ", session);
-                onComplete(session[name]);
-            }).catch();
+            browser.storage.local
+                .get(name)
+                .then((session) => {
+                    console.log("loadSession.session: ", session);
+                    onComplete(session[name]);
+                })
+                .catch();
         } catch (exception) {
             console.log("ERROR: Could not read from database: ", exception);
             onComplete({});
@@ -49,20 +48,23 @@ class Database {
     }
 
     loadSessions(onComplete) {
-        browser.storage.local.get("sessions").then(sessions => {
-            if(sessions?.sessions?.length) {
-                onComplete(sessions.sessions);
-            } else {
+        browser.storage.local
+            .get("sessions")
+            .then((sessions) => {
+                if (sessions?.sessions?.length) {
+                    onComplete(sessions.sessions);
+                } else {
+                    onComplete([]);
+                }
+            })
+            .catch((error) => {
+                console.log("loadSessions.error: ", error);
                 onComplete([]);
-            }
-        }).catch(error => {
-            console.log("loadSessions.error: ", error);
-            onComplete([]);
-        });
+            });
     }
 
     saveSessions(allSessionsArray) {
-        browser.storage.local.set({sessions: allSessionsArray}).catch(error => {
+        browser.storage.local.set({sessions: allSessionsArray}).catch((error) => {
             console.warn("Database.v3.saveSessions.error: ", error);
         });
     }

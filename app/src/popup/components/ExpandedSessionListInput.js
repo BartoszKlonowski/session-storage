@@ -11,7 +11,7 @@ export class ExpandedSessionListInput extends React.Component {
     }
 
     componentDidMount() {
-        this.state.storage.loadSessions(sessions => this.setState({sessions: sessions}));
+        this.state.storage.loadSessions((sessions) => this.setState({sessions: sessions}));
     }
 
     render() {
@@ -29,8 +29,8 @@ export class ExpandedSessionListInput extends React.Component {
                     type="text"
                     className="session-name-input"
                     onClick={() => {
-                        this.state.storage.loadSessions(sessions => this.setState({sessions: sessions}))}
-                    }
+                        this.state.storage.loadSessions((sessions) => this.setState({sessions: sessions}));
+                    }}
                     placeholder="..."
                 />
                 <datalist id="allSessions">{options}</datalist>

@@ -3,7 +3,8 @@ import Database from "./Database";
 if (!browser) {
     try {
         var browser = require("webextension-polyfill");
-    } catch(error) {
+    } catch (error) {
+        // eslint-disable-next-line no-redeclare
         var browser = {};
     }
 }

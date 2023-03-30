@@ -30,7 +30,7 @@ jobs:
   test:
     name: Run the unit tests
     runs-on: windows-latest
-    needs: [verify]
+    needs: [install]
 
     steps:
       - name: Checkout repository

@@ -27,6 +27,8 @@
         "jsx-a11y"
     ],
     "globals": {
+        "require": "readonly",
+        "global": "writable",
         "browser": "writable",
         "window": "readonly",
         "test": "writable",
