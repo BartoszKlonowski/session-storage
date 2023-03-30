@@ -35,7 +35,7 @@ class Database {
           onComplete(JSON.parse(sessionData));
       } catch (exception) {
           console.log("ERROR: Could not read from database: ", exception);
-          return {};
+          onComplete({});
       }
   }
 
@@ -44,7 +44,7 @@ class Database {
       if (sessionsArray) {
           onComplete(JSON.parse(sessionsArray));
       } else {
-          return [];
+          onComplete([]);
       }
   }
 
