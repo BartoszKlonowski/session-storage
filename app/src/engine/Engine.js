@@ -1,7 +1,11 @@
 import Database from "./Database";
 
-if (!global.browser) {
-    var browser = require("webextension-polyfill");
+if (!browser) {
+    try {
+        var browser = require("webextension-polyfill");
+    } catch(error) {
+        var browser = {};
+    }
 }
 
 class Engine {
