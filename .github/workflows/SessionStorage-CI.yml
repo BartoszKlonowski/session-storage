@@ -52,7 +52,7 @@ jobs:
   pre-build-package-verify:
     name: Verify the package before build
     runs-on: windows-latest
-    needs: [verify, pre-build-package-compile]
+    needs: [verify, pre-build-package-compile-cross-platform]
 
     steps:
       - name: Checkout repository
@@ -70,14 +70,14 @@ jobs:
       - name: Pull the compiled sources
         uses: actions/cache@v2.1.6
         with:
-          path: ./build
-          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./app/manifest.json') }}
+          path: ./platforms
+          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
 
-      - name: Verify the package
-        run: npx web-ext --source-dir "./build" lint
+      - name: Verify the package for Mozilla
+        run: npx web-ext --source-dir "./platforms/mozilla/app" lint
 
 
-  pre-build-package-compile:
+  pre-build-package-compile-cross-platform:
     name: Compile the sources before build
     runs-on: windows-latest
     needs: [verify]
@@ -95,23 +95,23 @@ jobs:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
-      - name: Transpile
-        run: npx babel --config-file './.babelrc' ./app -Dd ./build
+      - name: Compile sources for Mozilla engine
+        run: npm run deploy-mozilla
 
-      - name: Compile
-        run: npx webpack --mode 'production'
+      - name: Compile sources for Chromium engine
+        run: npm run deploy-chromium
 
       - name: Cache
         uses: actions/cache@v2.1.6
         with:
-          path: ./build
-          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./app/manifest.json') }}
+          path: ./platforms
+          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
 
 
-  build:
+  build-cross-platform:
     name: Build the release package
     runs-on: windows-latest
-    needs: [pre-build-package-verify, pre-build-package-compile]
+    needs: [pre-build-package-verify, pre-build-package-compile-cross-platform]
     if: github.ref == 'refs/heads/main'
 
     steps:
@@ -130,14 +130,23 @@ jobs:
       - name: Pull the compiled sources
         uses: actions/cache@v2.1.6
         with:
-          path: ./build
-          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./app/manifest.json') }}
+          path: ./platforms
+          key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
 
-      - name: Build the release package
-        run: npx web-ext build --source-dir "./build"
+      - name: Build the release package of Mozilla engine
+        run: npx web-ext build --source-dir "./platforms/mozilla/app"
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
         with:
-          name: release-candidate-package
+          name: release-candidate-package-mozilla
+          path: ./web-ext-artifacts/*
+
+      - name: Build the release package of Chromium engine
+        run: npx web-ext build --source-dir "./platforms/chromium/app"
+
+      - name: Store the built package
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-candidate-package-chromium
           path: ./web-ext-artifacts/*
