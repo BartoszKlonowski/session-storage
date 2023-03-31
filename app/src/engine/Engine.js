@@ -1,13 +1,21 @@
 import Database from "./Database";
 
+if (!browser) {
+    try {
+        var browser = require("webextension-polyfill");
+    } catch (error) {
+        // eslint-disable-next-line no-redeclare
+        var browser = {};
+    }
+}
+
 class Engine {
-    constructor(browser) {
-        this.browser = browser;
+    constructor() {
         this.db = new Database();
     }
 
     pullAllOpenedTabs() {
-        return this.browser.tabs.query({currentWindow: true});
+        return browser.tabs.query({currentWindow: true});
     }
 
     saveSession(session, name) {
@@ -20,22 +28,23 @@ class Engine {
     }
 
     reopenSession(name) {
-        const tabsArray = this.db.loadSession(name);
-        const defaultWindowId = browser.windows.WINDOW_ID_CURRENT;
-        browser.windows
-            .getCurrent()
-            .then((thisWindow) => {
-                this.assignTabsToCurrentWindow(tabsArray, thisWindow.windowId, defaultWindowId);
-            })
-            .catch((error) => {
-                console.error("Could not fetch the current Window ID - assigning to default", error.message);
-                this.assignTabsToCurrentWindow(tabsArray, defaultWindowId, defaultWindowId);
-            })
-            .finally(() => {
-                for (let tab of tabsArray) {
-                    browser.tabs.create(tab);
-                }
-            });
+        this.db.loadSession(name, (session) => {
+            const defaultWindowId = browser.windows.WINDOW_ID_CURRENT;
+            browser.windows
+                .getCurrent()
+                .then((thisWindow) => {
+                    this.assignTabsToCurrentWindow(session, thisWindow.windowId, defaultWindowId);
+                })
+                .catch((error) => {
+                    console.error("Could not fetch the current Window ID - assigning to default", error.message);
+                    this.assignTabsToCurrentWindow(session, defaultWindowId, defaultWindowId);
+                })
+                .finally(() => {
+                    for (let tab of session) {
+                        browser.tabs.create(tab);
+                    }
+                });
+        });
     }
 
     isSessionNameCorrect(name) {

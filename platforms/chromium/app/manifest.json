@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Session Storage",
   "version": "1.0.2",
 
@@ -11,7 +11,7 @@
   ],
 
   "background": {
-    "scripts": ["src/engine/Background.js"]
+    "service_worker": "src/engine/Background.js"
   },
 
   "icons": {
@@ -20,7 +20,7 @@
 
   "description": "Let's user keep his sessions for future restoration",
 
-  "browser_action": {
+  "action": {
     "default_icon": "icons/SessionStorageIcon.png",
     "default_title": "Session Storage",
     "default_popup": "src/popup/MainPopup.html"

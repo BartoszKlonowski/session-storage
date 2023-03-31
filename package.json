@@ -5,10 +5,12 @@
   "main": "manifest.json",
   "scripts": {
     "test": "jest",
-    "package-verify": "eslint . && npm run deploy && web-ext --source-dir ./build lint",
+    "package-verify": "eslint . && npm run deploy && web-ext --source-dir ./platforms lint",
     "ci": "npm run test && npm run package-verify",
-    "build": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode development",
-    "deploy": "babel --config-file ./.babelrc ./app -Dd ./build && webpack --mode production"
+    "platforms-mozilla": "babel --config-file ./.babelrc ./app -Dd ./platforms/mozilla/app && webpack --config ./platforms/mozilla/webpack.config.js --mode development",
+    "deploy-mozilla": "babel --config-file ./.babelrc ./app -Dd ./platforms/mozilla/app && webpack --config ./platforms/mozilla/webpack.config.js --mode production",
+    "platforms-chromium": "babel --config-file ./.babelrc ./app -Dd ./platforms/chromium/app && webpack --config ./platforms/chromium/webpack.config.js --mode development",
+    "deploy-chromium": "babel --config-file ./.babelrc ./app -Dd ./platforms/chromium/app && webpack --config ./platforms/chromium/webpack.config.js --mode production"
   },
   "repository": {
     "type": "git",
@@ -46,10 +48,17 @@
     "react-dom": "^17.0.2",
     "web-ext": "^7.5.0",
     "webpack": "^5.76.0",
+    "webextension-polyfill": "^0.10.0",
     "webpack-cli": "^4.9.2"
   },
   "jest": {
     "verbose": true,
+    "moduleNameMapper": {
+      ".\\Database": "<rootDir>/platforms/mozilla/app/src/engine/Database.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/__tests__/setupTest.js"
+    ],
     "testEnvironment": "jsdom"
   }
 }
