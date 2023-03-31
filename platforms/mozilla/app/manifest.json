@@ -12,7 +12,6 @@
 
   "background": {
     "scripts": [
-      "browser-polyfill.js",
       "src/engine/Background.js"
     ]
   },
