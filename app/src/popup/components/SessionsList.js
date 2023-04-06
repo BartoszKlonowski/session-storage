@@ -13,7 +13,12 @@ const SessionTile = ({name, onSelect}) => {
     }, [name]);
 
     return (
-        <div className="session-tile-container" onClick={onSelect}>
+        <div
+            className="session-tile-container"
+            role={"menuitem"}
+            tabIndex={name}
+            onClick={onSelect}
+            onKeyDown={onSelect}>
             <div className="session-tile-name">{name}</div>
             <div className="session-tile-tabs-count">{tabsCount}</div>
         </div>
