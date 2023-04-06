@@ -3,7 +3,7 @@ import Database from "../../engine/Database";
 
 const db = new Database();
 
-const SessionTile = ({name}) => {
+const SessionTile = ({name, onSelect}) => {
     const [tabsCount, setTabsCount] = useState(0);
 
     useEffect(() => {
@@ -13,14 +13,14 @@ const SessionTile = ({name}) => {
     }, [name]);
 
     return (
-        <div className="session-tile-container">
+        <div className="session-tile-container" onClick={onSelect}>
             <div className="session-tile-name">{name}</div>
             <div className="session-tile-tabs-count">{tabsCount}</div>
         </div>
     );
 };
 
-export const SessionsList = ({sessions, selectedSession}) => {
+export const SessionsList = ({sessions, selectedSession, onSelect}) => {
     if (!sessions?.length) {
         return null;
     }
@@ -31,7 +31,7 @@ export const SessionsList = ({sessions, selectedSession}) => {
             {selectedSessions.map((session) => {
                 return (
                     <li key={`sessionSuggestionTile-${session}`}>
-                        <SessionTile name={session} />
+                        <SessionTile name={session} onSelect={() => onSelect(session)} />
                     </li>
                 );
             })}
