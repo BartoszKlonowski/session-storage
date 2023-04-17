@@ -27,7 +27,9 @@ const SessionTile = ({name, onSelect}) => {
 
 export const SessionsList = ({sessions, selectedSession, onSelect}) => {
     if (!sessions?.length) {
-        return null;
+        return (
+            <div className="sessions-list-container"/>
+        );
     }
 
     const selectedSessions = sessions.filter((session) => session.includes(selectedSession));
