@@ -5,6 +5,7 @@
   "main": "manifest.json",
   "scripts": {
     "test": "jest",
+    "lint": "eslint app/ platforms/chromium/app/src/engine/Database.js platforms/mozilla/app/src/engine/Database.js",
     "package-verify": "eslint . && npm run deploy && web-ext --source-dir ./platforms lint",
     "ci": "npm run test && npm run package-verify",
     "platforms-mozilla": "babel --config-file ./.babelrc ./app -Dd ./platforms/mozilla/app && webpack --config ./platforms/mozilla/webpack.config.js --mode development",

@@ -11,21 +11,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-
-      - name: Display tools versions
-        run: npm --version;
-
-      - name: Restore all the packages
-        run: npm ci
-
-      - name: Cache
-        uses: actions/cache@v2.1.6
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3.0.7
+        env:
+          cache-name: cached-npm-deps
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
+      - name: Install required dependencies on cache miss (npm)
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: |
+          npm install
 
   verify:
     name: Verify the sources
@@ -40,13 +38,13 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
       - name: Run ESLint on the sources
-        run: npx eslint .
+        run: npm run lint
 
 
   pre-build-package-verify:
@@ -62,13 +60,13 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
       - name: Pull the compiled sources
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
@@ -90,7 +88,7 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
@@ -102,7 +100,7 @@ jobs:
         run: npm run deploy-chromium
 
       - name: Cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
@@ -122,19 +120,19 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
       - name: Pull the compiled sources
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
 
       - name: Build the release package of Mozilla engine
-        run: npx web-ext build --source-dir "./platforms/mozilla/app"
+        run: npx web-ext build --source-dir "./platforms/mozilla/app" --overwrite-dest
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
@@ -143,7 +141,7 @@ jobs:
           path: ./web-ext-artifacts/*
 
       - name: Build the release package of Chromium engine
-        run: npx web-ext build --source-dir "./platforms/chromium/app"
+        run: npx web-ext build --source-dir "./platforms/chromium/app" --overwrite-dest
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
