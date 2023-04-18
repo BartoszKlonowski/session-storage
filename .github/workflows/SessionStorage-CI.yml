@@ -38,7 +38,7 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
@@ -60,13 +60,13 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
       - name: Pull the compiled sources
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
@@ -88,7 +88,7 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
@@ -100,7 +100,7 @@ jobs:
         run: npm run deploy-chromium
 
       - name: Cache
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
@@ -120,13 +120,13 @@ jobs:
         uses: actions/setup-node@v2
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
       - name: Pull the compiled sources
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v3.0.7
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
