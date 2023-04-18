@@ -46,7 +46,7 @@ jobs:
           key: ${{ hashFiles('./package.json') }}
 
       - name: Run ESLint on the sources
-        run: npx eslint .
+        run: npm run lint
 
 
   pre-build-package-verify:
@@ -134,7 +134,7 @@ jobs:
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
 
       - name: Build the release package of Mozilla engine
-        run: npx web-ext build --source-dir "./platforms/mozilla/app"
+        run: npx web-ext build --source-dir "./platforms/mozilla/app" --overwrite-dest
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
@@ -143,7 +143,7 @@ jobs:
           path: ./web-ext-artifacts/*
 
       - name: Build the release package of Chromium engine
-        run: npx web-ext build --source-dir "./platforms/chromium/app"
+        run: npx web-ext build --source-dir "./platforms/chromium/app" --overwrite-dest
 
       - name: Store the built package
         uses: actions/upload-artifact@v2
