@@ -28,9 +28,7 @@ export function handleEventForGivenTab(browser, tabs, event, session) {
 
 export function getSessionNameFromInput(document) {
     const sessionNameInput = document.getElementsByClassName("session-name-input")[0];
-    const sessionName = sessionNameInput.value;
-    sessionNameInput.value = "";
-    return sessionName;
+    return sessionNameInput ? sessionNameInput.value : "";
 }
 
 export function listenForClicks(document, browser) {
