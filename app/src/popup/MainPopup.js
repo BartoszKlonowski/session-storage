@@ -3,7 +3,6 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
 import ActionButton from "./components/ActionButton";
-import Logo from "./components/Logo";
 
 if (!browser) {
     var browser = require("webextension-polyfill");
@@ -20,7 +19,6 @@ export class MainPopup extends React.Component {
     render() {
         return (
             <form id="mainForm">
-                <Logo extensionName="Session Storage" />
                 <ExpandedSessionListInput />
                 <div className="panel-actions">
                     <ActionButton name="saveButton" text="SAVE" icon="glyphicon glyphicon-floppy-disk" />
