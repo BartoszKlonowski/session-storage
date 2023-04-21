@@ -13,10 +13,6 @@ html, body {
   margin-top: 15px;
 }
 
-.panel-plugin-name {
-  height: 5%;
-}
-
 a {
   display: flex;
   font-size: 20px;
