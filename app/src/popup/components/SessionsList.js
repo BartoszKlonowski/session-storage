@@ -12,6 +12,8 @@ const SessionTile = ({name, onSelect}) => {
         });
     }, [name]);
 
+    const nameLenghtTreshold = 22;
+    const trimmedName = name.length > nameLenghtTreshold ? name.substring(0, nameLenghtTreshold).concat("...") : name;
     return (
         <div
             className="session-tile-container"
@@ -19,7 +21,9 @@ const SessionTile = ({name, onSelect}) => {
             tabIndex={name}
             onClick={onSelect}
             onKeyDown={onSelect}>
-            <div className="session-tile-name">{name}</div>
+            <div className="session-tile-name" title={name}>
+                {trimmedName}
+            </div>
             <div className="session-tile-tabs-count">{tabsCount}</div>
         </div>
     );
