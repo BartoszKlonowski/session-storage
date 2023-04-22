@@ -21,7 +21,9 @@ const SessionTile = ({name, onSelect}) => {
             tabIndex={name}
             onClick={onSelect}
             onKeyDown={onSelect}>
-            <div className="session-tile-name">{trimmedName}</div>
+            <div className="session-tile-name" title={name}>
+                {trimmedName}
+            </div>
             <div className="session-tile-tabs-count">{tabsCount}</div>
         </div>
     );
