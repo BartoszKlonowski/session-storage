@@ -1,5 +1,7 @@
 {
     "save": "Zapisz",
     "delete": "Usuń",
-    "reopen": "Otwórz ponownie"
+    "reopen": "Otwórz ponownie",
+    "session-placeholder": "Wprowadź nazwę sesji",
+    "session-tooltip": "Nazwa sesji"
 }

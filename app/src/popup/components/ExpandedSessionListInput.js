@@ -1,5 +1,6 @@
 import React from "react";
 import Database from "../../engine/Database";
+import { translate } from "../../engine/i18n";
 import {SessionsList} from "./SessionsList";
 
 export class ExpandedSessionListInput extends React.Component {
@@ -39,7 +40,7 @@ export class ExpandedSessionListInput extends React.Component {
         return (
             <div className="panel-session-name">
                 <input
-                    title="Name of session"
+                    title={translate("session-tooltip")}
                     aria-label={"session-name-input-field"}
                     aria-required="true"
                     type="text"
@@ -49,7 +50,7 @@ export class ExpandedSessionListInput extends React.Component {
                     className={this.state.textInputID}
                     onChange={this.onChange}
                     onClick={this.onClick}
-                    placeholder="..."
+                    placeholder={translate("session-placeholder")}
                 />
                 <SessionsList
                     sessions={this.state.sessions}
