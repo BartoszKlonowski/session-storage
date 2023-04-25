@@ -1,6 +1,6 @@
 import React from "react";
 import Database from "../../engine/Database";
-import { translate } from "../../engine/i18n";
+import {translate} from "../../engine/i18n";
 import {SessionsList} from "./SessionsList";
 
 export class ExpandedSessionListInput extends React.Component {
