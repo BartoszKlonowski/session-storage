@@ -5,14 +5,16 @@ import Button from "./reusable/Button";
 export class ActionButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            translatedButtonText: translate(this.props.text.toLowerCase()),
+        };
     }
 
     render() {
         return (
-            <Button text={this.props.text} name={this.props.name}>
+            <Button text={this.state.translatedButtonText} name={this.props.name}>
                 <i id={this.props.name} className={this.props.icon}></i>
-                {translate(this.props.text.toLowerCase())}
+                {this.state.translatedButtonText}
             </Button>
         );
     }
