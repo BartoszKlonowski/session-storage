@@ -8,6 +8,8 @@ html, body {
 }
 
 .panel-session-name {
+  display: flex;
+  flex-direction: column;
   height: 50;
   justify-content: center;
   margin-top: 15px;
@@ -35,11 +37,6 @@ form {
   display: flex;
   flex-direction: row;
   vertical-align: top;
-}
-
-.panel-session-name {
-  display: flex;
-  flex-direction: column;
 }
 
 .session-name-input {
@@ -113,6 +110,7 @@ button {
   border-radius: 10px;
   height: 40px;
   margin: 10px;
+  white-space: nowrap;
   cursor: pointer;
   background-image: radial-gradient( white, lightblue);
   border: 1px solid transparent;

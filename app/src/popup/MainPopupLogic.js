@@ -33,7 +33,6 @@ export function getSessionNameFromInput(document) {
 
 export function listenForClicks(document, browser) {
     document.addEventListener("click", (event) => {
-        event.preventDefault();
         const session = getSessionNameFromInput(document);
         browser.tabs
             .query({active: true, currentWindow: true})

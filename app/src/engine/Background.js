@@ -13,17 +13,21 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
             switch (message.command) {
                 case "save":
                     correct = engine.saveSession(allTabs, message.session);
+                    correct = true;
                     break;
                 case "delete":
                     correct = engine.deleteSession(message.session);
+                    correct = true;
                     break;
                 case "reopen":
                     correct = engine.reopenSession(message.session);
+                    correct = true;
                     break;
                 default:
                     throw {message: `Unrecognized action from ${JSON.stringify(sender)}`};
             }
             if (correct === true) {
+                window.location.reload();
                 sendResponse();
             }
         })
