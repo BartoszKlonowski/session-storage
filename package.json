@@ -1,7 +1,7 @@
 {
   "name": "session-storage",
-  "version": "1.0.2",
-  "description": "Mozilla Firefox extension plugin to store and manage browsing sessions",
+  "version": "2.0.0",
+  "description": "Web browser extension plugin to store and manage browsing sessions",
   "main": "manifest.json",
   "scripts": {
     "test": "jest",
