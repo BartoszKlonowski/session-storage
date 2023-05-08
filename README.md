@@ -28,6 +28,7 @@ The idea is to have a simple plugin (being available in the upper-right corner) 
 
 This extension can be installed by:
 * installing it via the Mozilla add-ons market by clicking the button bellow:<br/><a href="https://addons.mozilla.org/pl/firefox/addon/session-storage/"><img src="./.github/resources/get-the-addon.png" alt="" /></a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/session-storage/idblfedhmcgolihmjjklghmnandofkbh"><img src="./.github/resources/get-the-addon-edge.png" alt="" /></a>
 * downloading it directly from the [Releases page](https://github.com/BartoszKlonowski/session-storage/releases) and install it manually in your browser
 
 After successful installation you will see the extension icon in the upper-right corner of your browser.
