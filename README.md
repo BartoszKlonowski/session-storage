@@ -14,7 +14,7 @@
     </a>
 </p>
 
-This project is the Mozilla Firefox extension plugin.
+The cross-browser add-on (extension) to store browsing sessions.
 <br/>It's purpose is to keep all your opened tabs in memory so you won't be afraid to close your browser or to start a new session.
 
 The idea is to have a simple plugin (being available in the upper-right corner) that will allow you to:
