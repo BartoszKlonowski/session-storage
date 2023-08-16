@@ -1,0 +1,7 @@
+{
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "reopen": "Reabrir",
+    "session-placeholder": "Ingrese el nombre de la sesión",
+    "session-tooltip": "Nombre de la sesión"
+}
