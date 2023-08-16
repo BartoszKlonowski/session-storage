@@ -7,7 +7,7 @@ if (!browser) {
     }
 }
 
-export const SupportedLanguages = ["en", "de", "fr", "pl"];
+export const SupportedLanguages = ["en", "de", "fr", "pl", "lt", "ro", "sv", "it", "ko", "es"];
 
 export function getSupportedBrowserLanguage() {
     const browserLanguage = browser.i18n.getUILanguage().toLowerCase();
