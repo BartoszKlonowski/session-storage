@@ -1,6 +1,6 @@
 import * as logic from "./MainPopupLogic";
 import * as React from "react";
-import {createRoot} from "react-dom/client";
+import ReactDOM from "react-dom";
 import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
 import ActionButton from "./components/ActionButton";
 
@@ -31,5 +31,4 @@ export class MainPopup extends React.Component {
 }
 
 logic.listenForClicks(document, browser);
-const root = createRoot(document.getElementById("root"));
-root.render(<MainPopup />);
+ReactDOM.render(<MainPopup />, document.getElementById("root"));
