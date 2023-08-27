@@ -1,6 +1,6 @@
 {
   "name": "session-storage",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Web browser extension plugin to store and manage browsing sessions",
   "main": "manifest.json",
   "scripts": {

@@ -36,11 +36,14 @@
     },
     "settings": {
         "jsx-a11y": {
-          "components": {
-            "Logo": "link",
-            "ActionButton": "button",
-            "Button": "button"
-          }
+            "components": {
+                "Logo": "link",
+                "ActionButton": "button",
+                "Button": "button"
+            }
+        },
+        "react": {
+            "version": "detect"
         }
       }
 }
