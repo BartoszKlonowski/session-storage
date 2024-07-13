@@ -78,6 +78,7 @@ form {
   border-color: ivory;
   box-shadow: 0px 3px 5px 0px grey;
   transition: 250ms all ease-in-out;
+  cursor: pointer;
 }
 
 .session-tile-container:hover {
