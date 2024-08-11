@@ -34,7 +34,7 @@ export const SessionsList = ({sessions, selectedSession, onSelect}) => {
         return <div className="sessions-list-container" />;
     }
 
-    const selectedSessions = sessions.filter((session) => session.includes(selectedSession));
+    const selectedSessions = sessions.filter((session) => session.toLowerCase().includes(selectedSession));
     return (
         <div className="sessions-list-container">
             {selectedSessions.map((session) => {
