@@ -62,6 +62,7 @@ export class ExpandedSessionListInput extends React.Component {
                     />
                     <div
                         onClick={this.onCaseSensitiveChange}
+                        tabIndex={translate("case-sensitive")}
                         className={
                             this.state.isCaseSensitive
                                 ? "session-search-entry-matchCase-selected"

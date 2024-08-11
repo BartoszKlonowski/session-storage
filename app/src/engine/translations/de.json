@@ -3,5 +3,6 @@
     "delete": "Löschen",
     "reopen": "Wieder aufnehmen",
     "session-placeholder": "Geben Sie den Namen der Sitzung ein",
-    "session-tooltip": "Der Name der Sitzung"
+    "session-tooltip": "Der Name der Sitzung",
+    "case-sensitive": "Groß-/Kleinschreibung beachten"
 }

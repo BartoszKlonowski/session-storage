@@ -3,5 +3,6 @@
     "delete": "Delete",
     "reopen": "Reopen",
     "session-placeholder": "Enter the name of the session",
-    "session-tooltip": "Name of the session"
+    "session-tooltip": "Name of the session",
+    "case-sensitive": "Case-sensitive"
 }
