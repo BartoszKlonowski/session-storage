@@ -88,10 +88,10 @@ form {
 .sessions-list-container {
   height: 150px;
   max-height: 150px;
-  width: 220px;
+  width: 250px;
   flex-direction: column;
   list-style: none;
-  margin: 10px;
+  margin: 5px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
