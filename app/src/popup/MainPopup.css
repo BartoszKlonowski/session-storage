@@ -50,6 +50,39 @@ form {
   border-color: lightblue;
 }
 
+.panel-session-name-input-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.session-search-entry-matchCase-selected {
+  font-weight: 600;
+  margin: 10px;
+  color: lightblue;
+  overflow: hidden;
+  user-select: none;
+  font-size: small;
+}
+
+.session-search-entry-matchCase-unselected {
+  font-weight: 600;
+  margin: 10px;
+  color: grey;
+  overflow: hidden;
+  user-select: none;
+  font-size: small;
+}
+
+.session-search-entry-matchCase-selected:hover {
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px lightblue;
+}
+
+.session-search-entry-matchCase-unselected:hover {
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px grey;
+}
+
 .sessions-list-container {
   height: 150px;
   max-height: 150px;

@@ -29,14 +29,17 @@ const SessionTile = ({name, onSelect}) => {
     );
 };
 
-export const SessionsList = ({sessions, selectedSession, onSelect}) => {
+export const SessionsList = ({sessions, caseSensitive, selectedSession, onSelect}) => {
     if (!sessions?.length) {
         return <div className="sessions-list-container" />;
     }
 
-    const selectedSessions = sessions.filter((session) =>
-        session.toLowerCase().includes(selectedSession.toLocaleLowerCase())
-    );
+    const selectedSessions = sessions.filter((session) => {
+        return caseSensitive
+            ? session.includes(selectedSession)
+            : session.toLowerCase().includes(selectedSession.toLocaleLowerCase());
+    });
+
     return (
         <div className="sessions-list-container">
             {selectedSessions.map((session) => {

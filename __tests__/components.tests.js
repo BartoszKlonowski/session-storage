@@ -32,3 +32,22 @@ test("SessionsList is case insensitive by default", async () => {
     expect(renderedSessionTile).toBeDefined();
     expect(renderedSessionTile.props.tabIndex).toBe(testSessions[1]);
 });
+
+test("SessionList can be switched to case sensitive", async () => {
+    const testSessions = ["session and upperCase", "Session and UpperCase"];
+    const sessionList = await renderElementAsObject(
+        <SessionsList
+            sessions={testSessions}
+            caseSensitive={true}
+            selectedSession={"Session and UpperCase"}
+            onSelect={(session) => {
+                session;
+            }}
+        />
+    );
+
+    expect(sessionList).toBeDefined();
+    const renderedSessionTile = getChild(getChild(sessionList, 0), 0);
+    expect(renderedSessionTile).toBeDefined();
+    expect(renderedSessionTile.props.tabIndex).toBe(testSessions[1]);
+});
