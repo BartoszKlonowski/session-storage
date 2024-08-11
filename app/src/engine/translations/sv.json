@@ -3,5 +3,6 @@
     "delete": "Radera",
     "reopen": "Öppna igen",
     "session-placeholder": "Ange namnet på sessionen",
-    "session-tooltip": "Sessionens namn"
+    "session-tooltip": "Sessionens namn",
+    "case-sensitive": "skiftlägeskänslig"
 }

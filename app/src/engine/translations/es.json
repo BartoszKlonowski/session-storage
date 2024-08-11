@@ -3,5 +3,6 @@
     "delete": "Eliminar",
     "reopen": "Reabrir",
     "session-placeholder": "Ingrese el nombre de la sesión",
-    "session-tooltip": "Nombre de la sesión"
+    "session-tooltip": "Nombre de la sesión",
+    "case-sensitive": "distingue mayúsculas y minúsculas"
 }

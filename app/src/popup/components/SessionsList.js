@@ -12,7 +12,7 @@ const SessionTile = ({name, onSelect}) => {
         });
     }, [name]);
 
-    const nameLenghtTreshold = 22;
+    const nameLenghtTreshold = 27;
     const trimmedName = name.length > nameLenghtTreshold ? name.substring(0, nameLenghtTreshold).concat("...") : name;
     return (
         <div
@@ -29,12 +29,17 @@ const SessionTile = ({name, onSelect}) => {
     );
 };
 
-export const SessionsList = ({sessions, selectedSession, onSelect}) => {
+export const SessionsList = ({sessions, caseSensitive, selectedSession, onSelect}) => {
     if (!sessions?.length) {
         return <div className="sessions-list-container" />;
     }
 
-    const selectedSessions = sessions.filter((session) => session.includes(selectedSession));
+    const selectedSessions = sessions.filter((session) => {
+        return caseSensitive
+            ? session.includes(selectedSession)
+            : session.toLowerCase().includes(selectedSession.toLocaleLowerCase());
+    });
+
     return (
         <div className="sessions-list-container">
             {selectedSessions.map((session) => {
