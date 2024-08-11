@@ -48,6 +48,7 @@ export class ExpandedSessionListInput extends React.Component {
             <div className="panel-session-name">
                 <div className="panel-session-name-input-container">
                     <input
+                        tabIndex={0}
                         title={translate("session-tooltip")}
                         aria-label={"session-name-input-field"}
                         aria-required="true"
@@ -63,6 +64,9 @@ export class ExpandedSessionListInput extends React.Component {
                     <div
                         onClick={this.onCaseSensitiveChange}
                         tabIndex={translate("case-sensitive")}
+                        role={"button"}
+                        title={translate("case-sensitive")}
+                        onKeyDown={this.onCaseSensitiveChange}
                         className={
                             this.state.isCaseSensitive
                                 ? "session-search-entry-matchCase-selected"
