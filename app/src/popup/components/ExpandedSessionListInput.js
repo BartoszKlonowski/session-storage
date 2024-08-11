@@ -54,7 +54,7 @@ export class ExpandedSessionListInput extends React.Component {
                 />
                 <SessionsList
                     sessions={this.state.sessions}
-                    selectedSession={this.state.selectedSessionName.toLocaleLowerCase()}
+                    selectedSession={this.state.selectedSessionName}
                     onSelect={(session) => {
                         this.onSelect(session);
                     }}
