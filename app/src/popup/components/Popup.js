@@ -10,23 +10,18 @@ export class Popup extends React.Component {
         super(props);
         this.state = {
             extensionName: "Session Storage",
-            selectedSession: "",
             saveButtonTitle: "",
         };
 
         this.onTextInputChange = this.onTextInputChange.bind(this);
-        this.onSessionsLoad = this.onSessionsLoad.bind(this);
-    }
-
-    onSessionsLoad(sessions) {
-        const buttonTitle = sessions.includes(this.state.selectedSession) ? "OVERWRITE" : "SAVE";
-        this.setState({saveButtonTitle: buttonTitle});
     }
 
     onTextInputChange(newValue) {
         const db = new Database();
-        this.setState({selectedSession: newValue});
-        db.loadSessions(this.onSessionsLoad);
+        db.loadSessions((sessions) => {
+            const buttonTitle = sessions.includes(newValue) ? "OVERWRITE" : "SAVE";
+            this.setState({saveButtonTitle: buttonTitle});
+        });
     }
 
     render() {
