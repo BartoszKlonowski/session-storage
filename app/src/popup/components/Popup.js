@@ -1,8 +1,6 @@
 import * as React from "react";
 import ExpandedSessionListInput from "./ExpandedSessionListInput";
 import ActionButton from "./ActionButton";
-import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
-import ActionButton from "./components/ActionButton";
 import Database from "../engine/Database";
 
 export class Popup extends React.Component {
