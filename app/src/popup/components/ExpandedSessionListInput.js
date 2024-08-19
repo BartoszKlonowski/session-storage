@@ -25,11 +25,13 @@ export class ExpandedSessionListInput extends React.Component {
     }
 
     onSelect(session) {
+        this.props.onTextInputChange(session);
         this.setState({selectedSessionName: session});
     }
 
     onChange(event) {
         const newValue = event.target.value;
+        this.props.onTextInputChange(newValue);
         this.setState({selectedSessionName: newValue});
     }
 

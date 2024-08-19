@@ -1,5 +1,6 @@
 {
     "save": "Speichern",
+    "overwrite": "Überschreiben",
     "delete": "Löschen",
     "reopen": "Wieder aufnehmen",
     "session-placeholder": "Geben Sie den Namen der Sitzung ein",

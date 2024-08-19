@@ -1,6 +1,7 @@
 import React from "react";
 import TestRenderer, {act} from "react-test-renderer";
 import {SessionsList} from "../app/src/popup/components/SessionsList";
+import {Popup} from "../app/src/popup/components/Popup";
 
 async function renderElementAsObject(element) {
     let component;
@@ -50,4 +51,15 @@ test("SessionList can be switched to case sensitive", async () => {
     const renderedSessionTile = getChild(getChild(sessionList, 0), 0);
     expect(renderedSessionTile).toBeDefined();
     expect(renderedSessionTile.props.tabIndex).toBe(testSessions[1]);
+});
+
+test("MainPopup component has the 'Save' button by default", async () => {
+    const mainPopup = await renderElementAsObject(
+        <Popup />
+    );
+
+    expect(mainPopup).toBeDefined();
+    const saveButton = getChild(getChild(mainPopup, 1), 0);
+    expect(saveButton.children[0].props.id).toBe("saveButton");
+    expect(saveButton.children[1]).toBe("Save");
 });

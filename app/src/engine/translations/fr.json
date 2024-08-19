@@ -1,5 +1,6 @@
 {
     "save": "Sauvegarder",
+    "overwrite": "Écraser",
     "delete": "Effacer",
     "reopen": "Reprendre",
     "session-placeholder": "Entrer le nom de la session",
