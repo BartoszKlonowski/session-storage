@@ -1,14 +1,8 @@
-import * as logic from "./MainPopupLogic";
 import * as React from "react";
-import ReactDOM from "react-dom";
-import ExpandedSessionListInput from "./components/ExpandedSessionListInput";
-import ActionButton from "./components/ActionButton";
+import ExpandedSessionListInput from "./ExpandedSessionListInput";
+import ActionButton from "./ActionButton";
 
-if (!browser) {
-    var browser = require("webextension-polyfill");
-}
-
-export class MainPopup extends React.Component {
+export class Popup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,6 +23,3 @@ export class MainPopup extends React.Component {
         );
     }
 }
-
-logic.listenForClicks(document, browser);
-ReactDOM.render(<MainPopup />, document.getElementById("root"));

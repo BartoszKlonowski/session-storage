@@ -23,6 +23,6 @@
   "action": {
     "default_icon": "icons/SessionStorageIcon.png",
     "default_title": "Session Storage",
-    "default_popup": "src/popup/MainPopup.html"
+    "default_popup": "src/popup/Main.html"
   }
 }
