@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
     entry: {
-        "src/popup/MainPopup": "./platforms/chromium/app/src/popup/MainPopup.js",
+        "src/popup/Main": "./platforms/chromium/app/src/popup/Main.js",
         "src/engine/Background": "./platforms/chromium/app/src/engine/Background.js",
     },
     output: {
