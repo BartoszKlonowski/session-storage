@@ -8,7 +8,7 @@ export class Popup extends React.Component {
         super(props);
         this.state = {
             extensionName: "Session Storage",
-            saveButtonTitle: "",
+            saveButtonTitle: "SAVE",
         };
 
         this.onTextInputChange = this.onTextInputChange.bind(this);
