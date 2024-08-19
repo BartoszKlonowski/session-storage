@@ -1,5 +1,6 @@
 {
     "save": "저장",
+    "overwrite": "덮어쓰기",
     "delete": "삭제",
     "reopen": "다시 열기",
     "session-placeholder": "세션 이름을 입력하세요",

@@ -1,5 +1,6 @@
 {
     "save": "Spara",
+    "overwrite": "Skriva över",
     "delete": "Radera",
     "reopen": "Öppna igen",
     "session-placeholder": "Ange namnet på sessionen",

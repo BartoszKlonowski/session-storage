@@ -1,5 +1,6 @@
 {
     "save": "Guardar",
+    "overwrite": "Exagerar",
     "delete": "Eliminar",
     "reopen": "Reabrir",
     "session-placeholder": "Ingrese el nombre de la sesión",
