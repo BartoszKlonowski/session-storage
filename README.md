@@ -70,6 +70,4 @@ If you plan to implement changes to this extension:
 
 ---
 
-## Thank you! ##
-
-If you like this project, or you find it helpful, please share your opinion with the author or just give it a star!
+## Thank you for using the add-on! ##
