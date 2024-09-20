@@ -47,11 +47,11 @@
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "web-ext": "^8.1.0",
-    "webpack": "^5.94.0",
     "react-test-renderer": "^17.0.2",
+    "web-ext": "^8.1.0",
     "webextension-polyfill": "^0.10.0",
-    "webpack-cli": "^4.9.2"
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   },
   "jest": {
     "verbose": true,
