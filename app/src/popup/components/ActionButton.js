@@ -1,16 +1,17 @@
 import React from "react";
 import {translate} from "../../engine/i18n";
-import DefaultIcon from "../icons/save-default.png";
-import HighlightedIcon from "../icons/save-highlighted.png";
 
 export class ActionButton extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             isMouseOver: false,
+            iconsPath: "../icons/",
         };
     }
 
+    IconDefault = require(`../icons/${this.props.icon}-default.png`);
+    IconHighlighted = require(`../icons/${this.props.icon}-highlighted.png`);
     render() {
         return (
             <button
@@ -20,7 +21,7 @@ export class ActionButton extends React.Component {
                 onMouseEnter={() => this.setState({isMouseOver: true})}
                 onMouseLeave={() => this.setState({isMouseOver: false})}>
                 <img
-                    src={this.state.isMouseOver ? HighlightedIcon : DefaultIcon}
+                    src={this.state.isMouseOver ? this.IconHighlighted : this.IconDefault}
                     alt={this.props.name}
                     height={25}
                     width={25}
