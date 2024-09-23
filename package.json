@@ -56,7 +56,8 @@
   "jest": {
     "verbose": true,
     "moduleNameMapper": {
-      ".\\Database": "<rootDir>/platforms/mozilla/app/src/engine/Database.js"
+      ".\\Database": "<rootDir>/platforms/mozilla/app/src/engine/Database.js",
+      "\\.(png)$": "<rootDir>/__tests__/setupTest.js"
     },
     "setupFilesAfterEnv": [
       "<rootDir>/__tests__/setupTest.js"
