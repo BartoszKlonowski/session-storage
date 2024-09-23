@@ -60,6 +60,7 @@ test("MainPopup component has the 'Save' button by default", async () => {
 
     expect(mainPopup).toBeDefined();
     const saveButton = getChild(getChild(mainPopup, 1), 0);
-    expect(saveButton.children[0].props.id).toBe("saveButton");
-    expect(saveButton.children[1]).toBe("Save");
+    const saveButtonTitle = getChild(saveButton.children[1], 0);
+    expect(saveButton.props.id).toBe("saveButton");
+    expect(saveButtonTitle).toBe("Save");
 });
