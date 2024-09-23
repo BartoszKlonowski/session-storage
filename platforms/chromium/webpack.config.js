@@ -9,4 +9,12 @@ module.exports = {
         filename: "[name].js",
         path: path.resolve(__dirname, "app"),
     },
+    module: {
+        rules: [
+            {
+                test: /\.(jpg|png|svg)$/,
+                type: "asset/resource"
+            },
+        ]
+    },
 };

@@ -27,13 +27,9 @@ export class Popup extends React.Component {
             <form id="mainForm">
                 <ExpandedSessionListInput onTextInputChange={this.onTextInputChange} />
                 <div className="panel-actions">
-                    <ActionButton
-                        name="saveButton"
-                        text={this.state.saveButtonTitle}
-                        icon="glyphicon glyphicon-floppy-disk"
-                    />
-                    <ActionButton name="deleteButton" text="DELETE" icon="glyphicon glyphicon-trash" />
-                    <ActionButton name="reopenButton" text="REOPEN" icon="glyphicon glyphicon-refresh" />
+                    <ActionButton name="saveButton" text={this.state.saveButtonTitle} icon="save" />
+                    <ActionButton name="deleteButton" text="DELETE" icon="delete" />
+                    <ActionButton name="reopenButton" text="REOPEN" icon="reopen" />
                 </div>
             </form>
         );
