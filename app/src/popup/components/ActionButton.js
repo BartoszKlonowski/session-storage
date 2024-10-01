@@ -21,12 +21,15 @@ export class ActionButton extends React.Component {
                 onMouseEnter={() => this.setState({isMouseOver: true})}
                 onMouseLeave={() => this.setState({isMouseOver: false})}>
                 <img
+                    id={this.props.name}
                     src={this.state.isMouseOver ? this.IconHighlighted : this.IconDefault}
                     alt={this.props.name}
                     height={25}
                     width={25}
                 />
-                <div className="center-container">{translate(this.props.text.toLowerCase())} </div>
+                <div id={this.props.name} className="center-container">
+                    {translate(this.props.text.toLowerCase())}
+                </div>
             </button>
         );
     }
