@@ -16,7 +16,7 @@ export class ActionButton extends React.Component {
         return (
             <button
                 type="submit"
-                title={translate(this.props.text.toLowerCase())}
+                title={this.props.text}
                 id={this.props.name}
                 onMouseEnter={() => this.setState({isMouseOver: true})}
                 onMouseLeave={() => this.setState({isMouseOver: false})}>
