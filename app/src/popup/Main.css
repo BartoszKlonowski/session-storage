@@ -2,7 +2,6 @@ html, body {
   margin: 0;
   padding: none;
   max-width: 500px;
-  height: 200px;
 }
 
 .hidden {
@@ -21,7 +20,6 @@ a {
   display: flex;
   font-size: 20px;
   justify-content: center;
-  font-weight: bold;
 }
 
 .panel-actions {
@@ -33,9 +31,9 @@ a {
 }
 
 form {
-  height: 200px;
+  display: flex;
   overflow: hidden;
-  background-color: #f2f2f2;
+  background-color: #F9F9F9;
   display: flex;
   flex-direction: row;
   vertical-align: top;
@@ -48,8 +46,12 @@ form {
   border-top-width: 0px;
   border-left-width: 0px;
   border-right-width: 0px;
-  border-bottom-width: 3px;
+  border-bottom-width: 2px;
   border-color: lightblue;
+}
+
+.session-name-input:is(:hover, :focus ){
+  border-color:rgb(13, 126, 255)
 }
 
 .panel-session-name-input-container {
@@ -61,7 +63,7 @@ form {
   font-weight: 600;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: lightblue;
+  color: rgb(13, 126, 255);
   overflow: hidden;
   user-select: none;
   font-size: small;
@@ -72,7 +74,7 @@ form {
   font-weight: 600;
   margin-bottom: 10px;
   margin-top: 10px;
-  color: grey;
+  color: lightblue;
   overflow: hidden;
   user-select: none;
   font-size: small;
@@ -81,17 +83,16 @@ form {
 
 .session-search-entry-matchCase-selected:hover {
   border-radius: 2px;
-  box-shadow: 0px 2px 2px hsl(195, 53%, 79%);
+  box-shadow: 0px 2px 1px hsl(195, 53%, 79%);
 }
 
 .session-search-entry-matchCase-unselected:hover {
   border-radius: 2px;
-  box-shadow: 0px 2px 2px grey;
+  box-shadow: 0px 2px 1px grey;
 }
 
 .sessions-list-container {
-  height: 150px;
-  max-height: 150px;
+  height: 140px;
   width: 250px;
   flex-direction: column;
   list-style: none;
@@ -121,15 +122,16 @@ form {
 }
 
 .session-tile-container:hover {
-  border-color: lightblue;
+  border-color: rgb(13, 126, 255);
   box-shadow: 0px 3px 10px 0px lightblue;
 }
 
 .session-tile-name {
   padding: 2px;
   width: 220px;
-  font-size: small;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-weight: lighter;
+  font-family: inherit;
 }
 
 .session-tile-tabs-count {
@@ -158,7 +160,8 @@ button {
   white-space: nowrap;
   cursor: pointer;
   background-image: radial-gradient( white, lightblue);
-  border: 1px solid transparent;
+  box-shadow: 0px 3px 6px 0px grey;
+  border: 1px solid ivory;
   transition: 250ms all ease-in-out;
 }
 
@@ -171,6 +174,7 @@ button {
 }
 
 button:hover {
-  border-radius: 30px;
-  border: 1px solid blue;
+  border-radius: 25px;
+  border: 1px solid rgb(13, 126, 255);
+  box-shadow: 0px 3px 10px 0px lightblue;
 }
