@@ -2,7 +2,6 @@ html, body {
   margin: 0;
   padding: none;
   max-width: 500px;
-  height: 200px;
 }
 
 .hidden {
@@ -33,7 +32,7 @@ a {
 }
 
 form {
-  height: 200px;
+  display: flex;
   overflow: hidden;
   background-color: #f2f2f2;
   display: flex;
@@ -90,8 +89,7 @@ form {
 }
 
 .sessions-list-container {
-  height: 150px;
-  max-height: 150px;
+  height: 140px;
   width: 250px;
   flex-direction: column;
   list-style: none;
