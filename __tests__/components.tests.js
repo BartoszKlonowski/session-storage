@@ -2,6 +2,7 @@ import React from "react";
 import TestRenderer, {act} from "react-test-renderer";
 import {SessionsList} from "../app/src/popup/components/SessionsList";
 import {Popup} from "../app/src/popup/components/Popup";
+import ActionButton from "../app/src/popup/components/ActionButton";
 
 async function renderElementAsObject(element) {
     let component;
@@ -63,4 +64,20 @@ test("MainPopup component has the 'Save' button by default", async () => {
     const saveButtonTitle = getChild(saveButton.children[1], 0);
     expect(saveButton.props.id).toBe("saveButton");
     expect(saveButtonTitle).toBe("Save");
+});
+
+test("ActionButton has a correct tooltip shown", async () => {
+    const button = await renderElementAsObject(
+        <ActionButton name="deleteButton" text="DELETE" icon="delete" />
+    );
+    expect(button).toBeDefined();
+    expect(button.props.title).toBe("Delete");
+});
+
+test("ActionButton has a correct ID assigned based on props", async () => {
+    const button = await renderElementAsObject(
+        <ActionButton name="saveButton" text="SAVE" icon="save" />
+    );
+    expect(button).toBeDefined();
+    expect(button.props.id).toBe("saveButton");
 });
