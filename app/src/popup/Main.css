@@ -1,7 +1,7 @@
 html, body {
   margin: 0;
   padding: none;
-  max-width: 500px;
+  max-width: fit-content;
 }
 
 .hidden {
