@@ -12,7 +12,7 @@ const SessionTile = ({name, onSelect}) => {
         });
     }, [name]);
 
-    const nameLenghtTreshold = 27;
+    const nameLenghtTreshold = 25;
     const trimmedName = name.length > nameLenghtTreshold ? name.substring(0, nameLenghtTreshold).concat("...") : name;
     return (
         <div
