@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Session Storage",
-  "version": "2.1.0",
+  "version": "2.1.1",
 
   "permissions": [
     "activeTab",
