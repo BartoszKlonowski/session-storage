@@ -15,6 +15,7 @@ export class ActionButton extends React.Component {
     render() {
         return (
             <button
+                disabled={this.props.disabled}
                 type="submit"
                 title={translate(this.props.text.toLowerCase())}
                 id={this.props.name}

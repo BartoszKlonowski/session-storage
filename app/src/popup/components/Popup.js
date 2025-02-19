@@ -11,6 +11,8 @@ export class Popup extends React.Component {
             extensionName: "Session Storage",
             saveButtonTitle: "SAVE",
             buttonContainerWidth: 100,
+            sessionExists: false,
+            inputEmpty: true,
         };
 
         this.onTextInputChange = this.onTextInputChange.bind(this);
@@ -29,9 +31,11 @@ export class Popup extends React.Component {
 
     onTextInputChange(newValue) {
         const db = new Database();
+        this.setState({inputEmpty: !newValue});
         db.loadSessions((sessions) => {
-            const buttonTitle = sessions.includes(newValue) ? "OVERWRITE" : "SAVE";
-            this.setState({saveButtonTitle: buttonTitle});
+            const sessionExists = sessions.includes(newValue);
+            const buttonTitle = sessionExists ? "OVERWRITE" : "SAVE";
+            this.setState({saveButtonTitle: buttonTitle, sessionExists: sessionExists});
         });
     }
 
@@ -40,9 +44,24 @@ export class Popup extends React.Component {
             <form id="mainForm">
                 <ExpandedSessionListInput onTextInputChange={this.onTextInputChange} />
                 <div className="panel-actions" style={{width: `${this.state.buttonContainerWidth}px`}}>
-                    <ActionButton name="saveButton" text={this.state.saveButtonTitle} icon="save" />
-                    <ActionButton name="deleteButton" text="DELETE" icon="delete" />
-                    <ActionButton name="reopenButton" text="REOPEN" icon="reopen" />
+                    <ActionButton
+                        name="saveButton"
+                        text={this.state.saveButtonTitle}
+                        icon="save"
+                        disabled={this.state.inputEmpty}
+                    />
+                    <ActionButton
+                        name="deleteButton"
+                        text="DELETE"
+                        icon="delete"
+                        disabled={!this.state.sessionExists}
+                    />
+                    <ActionButton
+                        name="reopenButton"
+                        text="REOPEN"
+                        icon="reopen"
+                        disabled={!this.state.sessionExists}
+                    />
                 </div>
             </form>
         );
