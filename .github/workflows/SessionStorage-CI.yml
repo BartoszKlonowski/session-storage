@@ -9,11 +9,11 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         env:
           cache-name: cached-npm-deps
         with:
@@ -32,13 +32,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
 
       - name: Cache
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
@@ -54,19 +54,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
       - name: Pull the compiled sources
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
@@ -82,13 +82,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
@@ -100,7 +100,7 @@ jobs:
         run: npm run deploy-chromium
 
       - name: Cache
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}
@@ -114,19 +114,19 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
 
       - name: Pull the npm dependencies
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         with:
           path: ./node_modules
           key: ${{ hashFiles('./package.json') }}
 
       - name: Pull the compiled sources
-        uses: actions/cache@v3.0.7
+        uses: actions/cache@v4.2.3
         with:
           path: ./platforms
           key: ${{ hashFiles('./package.json') }}-${{ hashFiles('./platforms/mozilla/app/manifest.json') }}-${{ hashFiles('./platforms/chromium/app/manifest.json') }}

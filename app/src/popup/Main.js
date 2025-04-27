@@ -1,6 +1,6 @@
 import * as logic from "./MainPopupLogic";
 import * as React from "react";
-import ReactDOM from "react-dom";
+import {createRoot} from "react-dom/client";
 import {Popup} from "./components/Popup";
 
 if (!browser) {
@@ -8,4 +8,6 @@ if (!browser) {
 }
 
 logic.listenForClicks(document, browser);
-ReactDOM.render(<Popup />, document.getElementById("root"));
+
+const root = createRoot(document.getElementById("root"));
+root.render(<Popup />);
