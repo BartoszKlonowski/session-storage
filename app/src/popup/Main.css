@@ -11,9 +11,9 @@ html, body {
 .panel-session-name {
   display: flex;
   flex-direction: column;
-  height: 50;
-  justify-content: center;
-  margin-top: 15px;
+  height: 100%;
+  margin-top: 20px;
+  justify-content: space-around;
 }
 
 a {
@@ -92,7 +92,7 @@ form {
 }
 
 .sessions-list-container {
-  height: 145px;
+  height: 180px;
   width: 250px;
   flex-direction: column;
   list-style: none;
@@ -138,6 +138,13 @@ form {
   padding: 2px;
   text-align: right;
   width: 25px;
+}
+
+.import-export-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 textarea:focus, input:focus{

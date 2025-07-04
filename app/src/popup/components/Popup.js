@@ -62,6 +62,10 @@ export class Popup extends React.Component {
                         icon="reopen"
                         disabled={!this.state.sessionExists}
                     />
+                    <div className="import-export-container">
+                        <ActionButton name="fromOpenButton" text="FROMOPEN" icon="from-file" disabled={false} />
+                        <ActionButton name="toOpenButton" text="TOOPEN" icon="to-file" disabled={false} />
+                    </div>
                 </div>
             </form>
         );
