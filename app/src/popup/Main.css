@@ -30,6 +30,42 @@ a {
   align-content: space-between;
 }
 
+.inputWrapper {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  height: 40px;
+  margin: 10px;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+  background-image: radial-gradient( white, lightblue);
+  box-shadow: 0px 3px 6px 0px grey;
+  border: 1px solid ivory;
+  transition: 250ms all ease-in-out;
+}
+
+.inputWrapper:hover {
+  border-radius: 25px;
+  border: 1px solid rgb(13, 126, 255);
+  box-shadow: 0px 3px 10px 0px lightblue;
+}
+
+.fileInput {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size:50px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
 form {
   display: flex;
   overflow: hidden;
