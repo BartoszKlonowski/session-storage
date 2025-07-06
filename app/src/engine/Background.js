@@ -23,6 +23,12 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     correct = engine.reopenSession(message.session);
                     correct = true;
                     break;
+                case "from":
+                    correct = engine.writeSessionsFromFile();
+                    break;
+                case "to":
+                    correct = engine.writeSessionsToFile(message.session);
+                    break;
                 default:
                     throw {message: `Unrecognized action from ${JSON.stringify(sender)}`};
             }
