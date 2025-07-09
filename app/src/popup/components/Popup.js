@@ -1,6 +1,7 @@
 import * as React from "react";
 import ExpandedSessionListInput from "./ExpandedSessionListInput";
 import ActionButton from "./ActionButton";
+import FileButton from "./FileButton";
 import Database from "../../engine/Database";
 import {translate} from "../../engine/i18n";
 
@@ -62,6 +63,10 @@ export class Popup extends React.Component {
                         icon="reopen"
                         disabled={!this.state.sessionExists}
                     />
+                    <div className="import-export-container">
+                        <FileButton name="fromOpenButton" text="FROMOPEN" icon="from-file" disabled={false} />
+                        <FileButton name="toOpenButton" text="TOOPEN" icon="to-file" disabled={false} />
+                    </div>
                 </div>
             </form>
         );
