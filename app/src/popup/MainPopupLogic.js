@@ -6,6 +6,10 @@ export function buttonIdToCommandMessage(buttonId) {
             return "delete";
         case "reopenButton":
             return "reopen";
+        case "fromOpenButton":
+            return "from";
+        case "toOpenButton":
+            return "to";
         default:
             return "unknown";
     }
